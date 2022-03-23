@@ -1,4 +1,7 @@
-package clase7;
+package clase9;
+
+import clase7.Buscador;
+import clase7.Carrito;
 
 public class BuscadorMain {
 
@@ -28,7 +31,7 @@ public class BuscadorMain {
 			}
 		}
 		
-		for(int i=0; i<miCarrito.items.length; i++) {
+		for(int i=0; i<miCarrito.obtenerCantidadItems() ; i++) {
 			System.out.println(miCarrito.items[i].articulo.getNombre());
 			System.out.println(miCarrito.items[i].articulo.getPrecio());
 			System.out.println(miCarrito.items[i].cantidad);

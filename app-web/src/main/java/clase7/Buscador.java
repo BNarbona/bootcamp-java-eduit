@@ -3,9 +3,9 @@ package clase7;
 public class Buscador {
 
 	//atributos
-	String claveBusqueda;
-	Articulo [] articulos;
-	Integer cantidad;
+	private String claveBusqueda;
+	private Articulo [] articulos;
+	private Integer cantidad;
 	
 	//constructor
 	public Buscador() {
@@ -45,11 +45,11 @@ public class Buscador {
 			for (int i =0; i<this.cantidad; i++) {	
 				Articulo unArticulo = this.articulos[i];
 				
-				System.out.println(unArticulo.nombre);
-				System.out.println(unArticulo.autor);	
-				System.out.println(unArticulo.precio);
+				System.out.println(unArticulo.getNombre());
+				System.out.println(unArticulo.getAutor());	
+				System.out.println(unArticulo.getPrecio());
 				if (unArticulo.tieneImagen()) {
-					System.out.println(unArticulo.urlImagen);
+					System.out.println(unArticulo.getUrlImagen());
 				} else {
 					System.out.println("No tiene imagen, mostrar marca de agua");
 				}
@@ -70,5 +70,39 @@ public class Buscador {
 	public boolean hayResultados() {
 		return this.cantidad >0;
 	}
+	
+	public int getCantidadArticulos() {
+		int cantidad=0;
+		if(this.articulos != null) {
+			this.cantidad=this.articulos.length;
+		}
+		return cantidad;
+	}
+
+	public String getClaveBusqueda() {
+		return claveBusqueda;
+	}
+
+	public void setClaveBusqueda(String claveBusqueda) {
+		this.claveBusqueda = claveBusqueda;
+	}
+
+	public Articulo[] getArticulos() {
+		return articulos;
+	}
+
+	public void setArticulos(Articulo[] articulos) {
+		this.articulos = articulos;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+	
+	
 	
 }

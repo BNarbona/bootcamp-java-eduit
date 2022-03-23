@@ -2,7 +2,7 @@ package clase7;
 
 public class Carrito {
 
-	Item [] items; 
+	public Item [] items; 
 	
 	public Carrito() {
 		this.items = new Item[0]; // lo ponemos vacio, porque cuando arranca esta vacio
@@ -33,15 +33,15 @@ public class Carrito {
 	public Double obtenerPrecio(){
 		Double precio = new Double (0); //es igual que Double precio = 0D;
 		for(Item unItem : this.items) {
-			precio += unItem.articulo.precio;
+			precio += unItem.articulo.getPrecio();
 		}
 		return precio;
 	}
 	
 	public void eliminarItem(Item itemAEliminar) {
 		for (Item unItem : this.items) {
-			if(existeItem(itemAEliminar.articulo.id)) {
-			   copiarItems(itemAEliminar.articulo.id);
+			if(existeItem(itemAEliminar.articulo.getId())) {
+			   copiarItems(itemAEliminar.articulo.getId());
 			}
 		}
 	}
@@ -51,7 +51,7 @@ public class Carrito {
 		Item[] nuevos = new Item[this.items.length-1];
 		int i = 0;
 		for (Item unItem : this.items) {
-			if(!unItem.articulo.id.equals(id)) {
+			if(!unItem.articulo.getId().equals(id)) {
 				nuevos[i] = this.items[i];
 				i++;
 			}
@@ -62,7 +62,7 @@ public class Carrito {
 	public boolean existeItem (Long id) {
 		boolean existe = false;
 		for (Item unItem : this.items) {
-			if(unItem.articulo.id.equals(id)) {
+			if(unItem.articulo.getId().equals(id)) {
 				existe = true;
 				break;
 			}
