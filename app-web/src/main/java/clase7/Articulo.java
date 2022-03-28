@@ -18,8 +18,16 @@ public class Articulo {
 	} 
 	
 	//alt+shirt+s 
-	
-	
+	public void detalle() {
+		System.out.println(this.getNombre());
+		System.out.println(this.getAutor());	
+		System.out.println(this.getPrecio());
+		if (this.tieneImagen()) {
+			System.out.println(this.getUrlImagen());
+		} else {
+			System.out.println("No tiene imagen, mostrar marca de agua");
+		}
+	}
 	
 	boolean tieneImagen() {
 		//boolean tieneImagen = this.urlImagen==null&& this.urlImagen =="";

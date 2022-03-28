@@ -1,5 +1,10 @@
 package clase7;
 
+import clase10.Libro;
+import clase10.Musica;
+import clase10.Pasatiempo;
+import clase10.Pelicula;
+
 public class Buscador {
 
 	//atributos
@@ -16,6 +21,7 @@ public class Buscador {
 	
 	public Buscador(String claveBusqueda) {
 		this.claveBusqueda=claveBusqueda; 
+		articulos = new Articulo [0]; // creo el vector vacio
 	
 	}
 	
@@ -25,9 +31,15 @@ public class Buscador {
 		//ahora los vamos a "harcodear" para simular esto
 		
 		Articulo [] resultados = new Articulo [4];
-		resultados[0] = new Articulo (1l,"BATMAN (1930-1940) EL CABALLERO OSCURO","DC Comics",1540.90d,"https://www.tematika.com/media/catalog/Ilhsa/Imagenes/689621.jpg");
-		resultados[1] = new Articulo (2l,"BATMAN (1950) UNA NUEVA DIMENSION","DC Comics",1540.90d,"https://www.tematika.com/media/catalog/Ilhsa/Imagenes/689624.jpg");
-		resultados[2] = new Articulo (3l,"BATMAN (1960) EL CRUZADO DE LA CAPA","DC Comics",1540.90d,"https://www.tematika.com/media/catalog/Ilhsa/Imagenes/689626.jpg");
+		resultados[0] = new Libro (1l,"BATMAN (1930-1940) EL CABALLERO OSCURO","DC Comics",1540.90d,"https://www.tematika.com/media/catalog/Ilhsa/Imagenes/689621.jpg","6896");
+		
+		String [] temas = {"Tema1", "Tema2"};
+		
+		resultados[1] = new Musica (2l,"BATMAN (1950) UNA NUEVA DIMENSION","DC Comics",1540.90d,"https://www.tematika.com/media/catalog/Ilhsa/Imagenes/689624.jpg", temas);
+		
+		((Musica)resultados[1]).agregarTema("Tema nuevo");// hago un casteo--> downcasting
+		
+		resultados[2] = new Pasatiempo (3l,"BATMAN (1960) EL CRUZADO DE LA CAPA","DC Comics",1540.90d,"https://www.tematika.com/media/catalog/Ilhsa/Imagenes/689626.jpg", "unaMarca");
 		resultados[3] = new Articulo (4l,"BATMAN (1990) LA SOMBRA DEL MURCIELAGO","DC Comics",1540.90d,"");
 	
 		cantidad = resultados.length;
@@ -44,17 +56,9 @@ public class Buscador {
 	
 			for (int i =0; i<this.cantidad; i++) {	
 				Articulo unArticulo = this.articulos[i];
+				unArticulo.detalle();//ahora pase parte del metodo detalle al propio articulo
+					System.out.println("");
 				
-				System.out.println(unArticulo.getNombre());
-				System.out.println(unArticulo.getAutor());	
-				System.out.println(unArticulo.getPrecio());
-				if (unArticulo.tieneImagen()) {
-					System.out.println(unArticulo.getUrlImagen());
-				} else {
-					System.out.println("No tiene imagen, mostrar marca de agua");
-				}
-				System.out.println();
-			
 					//con el for each
 					//for(String aux : miBuscador.articulos) { 
 					//	System.out.println(aux);
@@ -64,7 +68,6 @@ public class Buscador {
 					//	System.out.println(miBuscador.articulos[i]);
 					//	}
 			}
-			
 	}
 
 	public boolean hayResultados() {
@@ -101,6 +104,10 @@ public class Buscador {
 
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
+	}
+
+	public Articulo [] getResultados() {
+		return this.articulos;
 	}
 	
 	
