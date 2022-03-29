@@ -1,6 +1,6 @@
 package clase7;
 
-public class Articulo {
+public abstract class Articulo {
 
 	private Long id;
 	private String nombre;
@@ -19,6 +19,8 @@ public class Articulo {
 	
 	//alt+shirt+s 
 	public void detalle() {
+		//el padre hace lo que sabe
+		
 		System.out.println(this.getNombre());
 		System.out.println(this.getAutor());	
 		System.out.println(this.getPrecio());
@@ -27,7 +29,14 @@ public class Articulo {
 		} else {
 			System.out.println("No tiene imagen, mostrar marca de agua");
 		}
+		
+		// ahora el hijo hace su parte
+		this.detalleHijo();
+		System.out.println("");
 	}
+	
+	public abstract void detalleHijo();
+	
 	
 	boolean tieneImagen() {
 		//boolean tieneImagen = this.urlImagen==null&& this.urlImagen =="";

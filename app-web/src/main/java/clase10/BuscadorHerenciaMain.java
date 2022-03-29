@@ -26,11 +26,15 @@ public class BuscadorHerenciaMain {
 		if(aux instanceof Musica) {
 			Musica m = (Musica)aux;
 			m.getListaTemas();
-		} else {
+		} 
+		if(aux instanceof Pasatiempo) {
 			Pasatiempo p = (Pasatiempo)aux;
 			p.getMarca();
+		} 
+		if (aux instanceof Pelicula) {
+			Pelicula pel = (Pelicula) aux;
+			pel.getProductora();
 		}
-
 		
 	}
 	

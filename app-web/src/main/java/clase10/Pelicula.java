@@ -6,9 +6,9 @@ public class Pelicula extends Articulo {
 	
 	private String productora;
 	
-	public Pelicula(Long id, String nombre, String autor, Double precio, String urlImagen) {
+	public Pelicula(Long id, String nombre, String autor, Double precio, String urlImagen, String Productora) {
 		super(id, nombre, autor, precio, urlImagen);
-		
+		this.productora = productora;
 	}
 
 	public String getProductora() {
@@ -17,6 +17,12 @@ public class Pelicula extends Articulo {
 
 	public void setProductora(String productora) {
 		this.productora = productora;
+	}
+
+	@Override
+	public void detalleHijo() {
+		System.out.println("productora: "+this.productora);;
+		
 	}
 	
 	

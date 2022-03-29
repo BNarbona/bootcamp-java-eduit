@@ -40,7 +40,7 @@ public class Buscador {
 		((Musica)resultados[1]).agregarTema("Tema nuevo");// hago un casteo--> downcasting
 		
 		resultados[2] = new Pasatiempo (3l,"BATMAN (1960) EL CRUZADO DE LA CAPA","DC Comics",1540.90d,"https://www.tematika.com/media/catalog/Ilhsa/Imagenes/689626.jpg", "unaMarca");
-		resultados[3] = new Articulo (4l,"BATMAN (1990) LA SOMBRA DEL MURCIELAGO","DC Comics",1540.90d,"");
+		resultados[3] = new Pelicula (4l,"BATMAN (1990) LA SOMBRA DEL MURCIELAGO","DC Comics",1540.90d,"", "La Productora");
 	
 		cantidad = resultados.length;
 		articulos = resultados;
