@@ -2,16 +2,16 @@ package practica_semana4;
 
 public class Ovni extends Volador {
 
-	private String modelo;
+	private String origen;
 	
-	public Ovni(String nombre, int id, String modelo) {
+	public Ovni(String nombre, int id, String origen) {
 		super(nombre, id);
-		this.modelo = modelo;
+		this.origen = origen;
 		
 	}
 
 	public void obtenerDatosV () {
-		System.out.println("Modelo: "+this.modelo);
+		System.out.println("Origen: "+this.origen);
 	}
 	
 }

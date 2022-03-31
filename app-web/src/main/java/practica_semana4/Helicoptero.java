@@ -2,12 +2,12 @@ package practica_semana4;
 
 public class Helicoptero extends Volador implements Aterrizable {
 
-	private String marca;
+	private String modelo;
 	private String tipo;
 	
-	public Helicoptero (String nombre, Integer id, String marca, String tipo) {
+	public Helicoptero (String nombre, Integer id, String modelo, String tipo) {
 		super(nombre, id);
-		this.marca = marca;
+		this.modelo = modelo;
 		this.tipo = tipo;
 	}
 
@@ -16,7 +16,7 @@ public class Helicoptero extends Volador implements Aterrizable {
 	}
 	
 	public void obtenerDatosV () {
-		System.out.println("Color de la capa: "+this.marca);
+		System.out.println("Modelo: "+this.modelo);
 		System.out.println("Tipo: "+this.tipo);
 	}
 	
