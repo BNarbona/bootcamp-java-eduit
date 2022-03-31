@@ -10,11 +10,11 @@ public class TorreMain {
 		voladoresHoy = torreA.ingresoVoladores();
 		
 		for(Volador v : voladoresHoy) {
-			if(v instanceof Aterrizable) {
+			if(v instanceof Aterrizable) {			
 				System.out.println("DATOS DEL VOLADOR");
-				v.obtenerDatos();
+				v.obtenerDatos(); 
 				System.out.println("\nTorre de control autoriza el aterrizaje");
-				((Aterrizable) v).aterrizar();
+				((Aterrizable) v).aterrizar(); //ejecuto metodo aterrizar de cada volador
 				
 			}
 			else {
@@ -22,7 +22,6 @@ public class TorreMain {
 			}
 			
 		}
-		
 		
 	}
 
