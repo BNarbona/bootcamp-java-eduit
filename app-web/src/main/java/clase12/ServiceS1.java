@@ -34,7 +34,7 @@ public class ServiceS1 implements IService {
 		return new Dato(id, description);		
 	}
 
-	public String parseString(String stringToParse,String deli,int idx) {
-		return stringToParse.split(deli)[idx];//ctrl+shit+i
+	public String parseString(String stringToParse,String delimitador,int idx) {
+		return stringToParse.split(delimitador)[idx];//ctrl+shit+i
 	}
 }

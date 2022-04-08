@@ -6,12 +6,13 @@ public class ServiceS2 implements IService {
 	public Dato consultar() {
 		String res = "id0001nombrecarlos    saldo01550";
 		
-		Long id = null;
-		String description = null;
+		String idStr = res.substring(2,6);
+		String nombreStr = res.substring(12,22);
 		
+		String saldo = res.substring(res.length()-5,res.length());
+		
+		return new Dato (Long.parseLong(idStr), nombreStr);
 	
-		
-		return new Dato(null,null);
 	}
 
 }

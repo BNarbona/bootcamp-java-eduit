@@ -46,7 +46,7 @@ public class MainLog {
 			}*/
 			
 			Log aux = getLog(op);
-			aux.setMsj(msj);
+			aux.setMsj(msj); //por polimorfismo se puede ejecutar el setter, ya que en el padre esta publico
 			
 			log[i] = aux;
 		}	
@@ -56,9 +56,10 @@ public class MainLog {
 			if(_log instanceof IEjecutable) {
 				IEjecutable iinterface = (IEjecutable)_log;
 				iinterface.ejecutar();
+				// o en lugar de guardarlo en un objeto, hago casteo: ((IEjecutable)_log).ejecutar();
 			}
 		}
-		
+		teclado.close();
 	}
 	
 	public static Log getLog (String op) {

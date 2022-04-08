@@ -10,7 +10,7 @@ public abstract class Log {
 	//Atributo Static: Pertenece a la clase, si cambia en algun lugar, cambia para todos
 	//visible por cualquier instancia
 	
-	public Log () {
+	public Log () {  //creo un constructor por defecto
 	
 	}
 	

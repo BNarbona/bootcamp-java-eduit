@@ -3,6 +3,7 @@ package clase11;
 public final class FSLog extends Log implements IEjecutable {
 //final: corta la herencia de la clase
 	public FSLog() {
+		super();
 		Log.cont++;
 	}
 	
@@ -20,7 +21,7 @@ public final class FSLog extends Log implements IEjecutable {
 
 	@Override
 	public void ejecutar() {
-		System.out.println("FS Log ejecutando el metodo Ejecutar");
+		System.out.println("FS Log ejecutando el metodo Ejecutar de IEjecutable");
 	}
 
 }
