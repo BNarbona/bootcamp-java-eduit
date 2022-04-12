@@ -1,7 +1,9 @@
 package clase16;
 
+import clase16.parser.IParse;
 import clase16.service.FileService;
 import clase16.service.FileServiceBuilder;
+import clase16.type.csvFile;
 
 public class MainFile {
 
@@ -15,7 +17,7 @@ public class MainFile {
 		FileService service = fsb.buildService(contenidoDelArchivo);
 		
 		//Falta pasar el contenido del archivo, se lo podria mandar con un setter: service.setContent(contenidoDelArchivo);
-		//O se lo paso por cosntructor
+		//O se lo paso por constructor
 		
 		service.save();
 		service.validate();
@@ -31,6 +33,7 @@ public class MainFile {
 			//service.vaidate();
 			//etc
 		}*/
+	
 		
 	}
 
