@@ -30,9 +30,10 @@ public class Main {
 		System.out.println("El listado de elementos esta vacio?: "+elementos.empty()+"\n");
 		
 		//eliminacion de un elemento que existe en el array
-		Articulo eliminado = elementos.remove(libroC);
+		Articulo eliminado; 
+		eliminado = elementos.remove(libroC);
 		if(eliminado==null) {
-			System.out.println("No existe el elemento en la lista"+"\n");
+			System.out.println("No existe el elemento que quiere eliminar en la lista"+"\n");
 		} else {
 			System.out.println("Se ha eliminado el elemento "+eliminado+"\n");
 		}
@@ -42,7 +43,7 @@ public class Main {
 		//eliminacion de un elemento que ya NO existe en el array
 		eliminado = elementos.remove(libroC);
 		if(eliminado==null) {
-			System.out.println("No existe el elemento en la lista"+"\n");
+			System.out.println("No existe el elemento que quiere eliminar en la lista"+"\n");
 		} else {
 			System.out.println("Se ha eliminado el elemento "+eliminado+"\n");
 		}
