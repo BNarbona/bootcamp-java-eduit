@@ -6,10 +6,37 @@ import java.util.Map;
 public class AccionMap {
 
 	
-	Map <Integer, IAccion> mapa = new HashMap<> ();
+	static Map <Integer, IAccion> mapa = construirAcciones();
+	
+
+	private static Map <Integer, IAccion> construirAcciones() {
+		//usar mapa local
+		
+		Map<Integer,IAccion> mapaAcciones = new HashMap<>();
+		mapaAcciones.put(1, new AccionAlta());
+		mapaAcciones.put(2, new AccionBaja());
+		mapaAcciones.put(3, new AccionModificar());
+		
+		return mapaAcciones;
+	
+	}
 	
 	
 	
+	public static IAccion getAccion(Integer op) {
+		IAccion accion = new AccionDefault();
+	
+		if(mapa.containsKey(op)) {
+			accion = mapa.get(op);
+		} 
+		
+		return accion;
+		
+	}
+
+
+
+
 	
 	
 }
