@@ -16,6 +16,8 @@ public abstract class Articulo {
 		this.precio = precio;
 		this.urlImagen = urlImagen;
 	} 
+	public Articulo() {
+	} 
 	
 	//alt+shirt+s 
 	public void detalle() {
@@ -86,6 +88,13 @@ public abstract class Articulo {
 	public void setUrlImagen(String urlImagen) {
 		this.urlImagen = urlImagen;
 	}
+	
+	@Override
+	public String toString() {
+		return "Articulo [id=" + id + ", nombre=" + nombre + ", autor=" + autor + ", precio=" + precio + ", urlImagen="
+				+ urlImagen + "]";
+	}
+	
 	
 	
 }

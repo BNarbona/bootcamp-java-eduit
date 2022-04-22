@@ -18,25 +18,37 @@ public class MainAccion {
 		
 		Integer op = 1;
 		IAccion accion = AccionMap.getAccion(op);
-		//Articulo articulo = construirArticulo();
+		Articulo articulo = construirArticulo();
 		
 		InMemoryDB.listAll();
-	//	accion.exec(articulo);
 		
+	 	accion.exec(articulo);
+		InMemoryDB.listAll();
 		
+		InMemoryDB.delete(articulo.getId());
+		InMemoryDB.listAll();
 	}
 	
-	/*private static Articulo construirArticulo() {
+	private static Articulo construirArticulo() {
 		Scanner teclado = new Scanner(System.in);
 		Articulo art = new Libro();
-		art.setAutor(teclado.next());
+		System.out.println("Ingrese el Titulo: ");
+		art.setNombre(teclado.next());
+		
+		System.out.println("Ingrese el Id: ");
 		art.setId(teclado.nextLong());
 		
-		//agregar los demas datos
+		System.out.println("Ingrese el precio: ");
+		art.setPrecio(teclado.nextDouble());
+		
+		System.out.println("Ingrese el Autor: ");
+		art.setAutor(teclado.next());
+		
+		art.setUrlImagen("-");
 		
 		teclado.close();
 		return art;
 		
-	}*/
+	}
 
 }

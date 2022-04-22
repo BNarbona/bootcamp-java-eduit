@@ -12,6 +12,10 @@ public class Libro extends Articulo {
 		this.isbn = isbn;
 		
 	}
+	public Libro() {
+		
+		
+	}
 
 	public String getIsbn() {
 		return isbn;
