@@ -1,4 +1,4 @@
-package clase19;
+package practica_semana6_new;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package clase19;
+package practica_semana6_new;
 
 public class ExceptionEmpty extends Exception {
 
