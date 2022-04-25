@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Objects;
 
 //clase inmutable
 public class Venta {
@@ -20,8 +21,6 @@ public class Venta {
 		this.monto = monto;
 	}
 
-	
-	
 	
 	
 	public Long getIdVendedor() {
@@ -43,6 +42,33 @@ public class Venta {
 		return "Venta [idVendedor=" + idVendedor + ", fecha=" + fecha + ", monto=" + monto + "]";
 	}
 
+
+
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(fecha, idVendedor, monto);
+	}
+
+
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Venta other = (Venta) obj;
+		return this.idVendedor.equals(other.getIdVendedor()); //cambio el codigo, solo compara por id.
+	}
+
 	//hashCode|equals*/
+	
+	
 	
 }
