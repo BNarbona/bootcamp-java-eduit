@@ -1,4 +1,4 @@
-package practica_semana6;
+package practica_semana5;
 
 import java.util.Arrays;
 
