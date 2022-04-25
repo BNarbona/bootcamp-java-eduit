@@ -5,13 +5,11 @@ import clase7.Articulo;
 public class AccionModificar implements IAccion {
 
 	@Override
-	public void exec(Articulo algo) {
-		Articulo art = InMemoryDB.getById(algo.getId());
+	public void exec(Articulo art) throws ExceptionBase {
+		Articulo articulo = InMemoryDB.getById(art.getId());
 		
-		//tendriamos qeu ingresar algun dato en art
-		
-		if(art!=null) {
-			InMemoryDB.update(algo.getId(), art);
+		if(articulo!=null) {
+			InMemoryDB.update(art.getId(), art);
 		}
 
 	}

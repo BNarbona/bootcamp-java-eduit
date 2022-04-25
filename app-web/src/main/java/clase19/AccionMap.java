@@ -16,11 +16,11 @@ public class AccionMap {
 		mapaAcciones.put(1, new AccionAlta());
 		mapaAcciones.put(2, new AccionBaja());
 		mapaAcciones.put(3, new AccionModificar());
+		mapaAcciones.put(4, new AccionListar());
 		
 		return mapaAcciones;
 	
 	}
-	
 	
 	
 	public static IAccion getAccion(Integer op) {

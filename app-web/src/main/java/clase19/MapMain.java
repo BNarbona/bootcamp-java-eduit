@@ -21,35 +21,36 @@ public class MapMain {
 		mapSemana.put(6,"Sabado");
 		mapSemana.put(7,"Domingo");
 		
-		System.out.println(mapSemana);
-		
+		System.out.println(mapSemana + "\n");
+	
 		boolean existe = mapSemana.containsKey(6);
-		System.out.println("El sabado existe ?:" +existe);
+		System.out.println("El sabado existe?: " +existe+ "\n");
 		
 		//eliminar elemento
 		
 		String value = mapSemana.remove(3);
-		System.out.println(mapSemana);
-		System.out.println(value);
+		System.out.println(mapSemana + "\n");
+		System.out.println(value + "\n");
 		
 		//borrar todo
 		//mapSemana.clear();
 		
 		//obtengo las claves
 		Set<Integer> keys = mapSemana.keySet();
-		System.out.println(keys);
+		System.out.println(keys + "\n");
 		
 		//obtengo los valores
 		
 		Collection<String> values = mapSemana.values();
-		System.out.println(values);
+		System.out.println(values + "\n");
 		
-		//recorrer un mapa - para eliminar o reemplazar, usar el iterador
+		//recorrer un mapa - para eliminar o reemplazar, podemos usar el iterador tambien
 		
 		for(Integer oneKey : keys ) {
 			String oneValue = mapSemana.get(oneKey);
 			System.out.println("Key: " + oneKey + " Value: "+oneValue);
 		}
+		System.out.println();
 			
 		Set<Map.Entry<Integer,String>> entrySet = mapSemana.entrySet();
 		

@@ -91,8 +91,7 @@ public abstract class Articulo {
 	
 	@Override
 	public String toString() {
-		return "Articulo [id=" + id + ", nombre=" + nombre + ", autor=" + autor + ", precio=" + precio + ", urlImagen="
-				+ urlImagen + "]";
+		return "Articulo [id=" + id + ", nombre=" + nombre + ", autor=" + autor + ", precio=" + precio + "]";
 	}
 	
 	

@@ -5,8 +5,9 @@ import clase7.Articulo;
 public class AccionListar implements IAccion {
 
 	@Override
-	public void exec(Articulo algo) {
-		System.out.println("Listando..."+algo);
+	public void exec(Articulo art) throws ExceptionBase {
+		InMemoryDB.listAll();
+		
 	}
 
 }
