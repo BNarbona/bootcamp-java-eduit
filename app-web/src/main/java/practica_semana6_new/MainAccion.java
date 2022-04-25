@@ -1,9 +1,7 @@
 package practica_semana6_new;
 
-import java.util.Scanner;
-
-import clase10.Libro;
 import clase7.Articulo;
+import clase7.Libro;
 
 public class MainAccion {
 
