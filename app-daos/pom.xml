@@ -5,12 +5,12 @@
     <artifactId>app-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>app-web</artifactId>
-  <name>modulo web del bootcamp</name>
+  <artifactId>app-daos</artifactId>
+  <name>modulo daos</name>
   <dependencies>
   	<dependency>
   		<groupId>ar.com.educacionit</groupId>
-  		<artifactId>app-daos</artifactId>
+  		<artifactId>app-domain</artifactId>
   		<version>1.0.0-SNAPSHOT</version>
   	</dependency>
   </dependencies>
