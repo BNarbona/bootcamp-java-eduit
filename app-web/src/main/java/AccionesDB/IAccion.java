@@ -1,6 +1,7 @@
-package practica_semana6_new;
+package AccionesDB;
 
-import clase7.Articulo;
+import Excepciones.ExceptionBase;
+import InMemoryDB.Articulo;
 
 public interface IAccion {
 

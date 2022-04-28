@@ -1,4 +1,4 @@
-package practica_semana6_new;
+package Excepciones;
 
 public class ExceptionId extends Exception {
 
