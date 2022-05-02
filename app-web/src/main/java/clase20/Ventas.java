@@ -1,5 +1,7 @@
 package clase20;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -32,8 +34,24 @@ private Collection <String> ventas;
 			while(itVentas.hasNext()) {
 				String siguienteLinea = itVentas.next();
 				
-				//Venta unaVenta = new Venta(siguienteLinea);
-				//ventas.add(unaVenta);
+				String[] arrayVenta = siguienteLinea.split("\\|");
+				
+				Long idVendedor = Long.parseLong(arrayVenta[0]);
+				
+				//uso SimpleDateFormat para parsear la fecha
+				SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+				
+				Date fecha = null;
+				try {
+					fecha = formato.parse(arrayVenta[1]);
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				
+				Double monto = Double.parseDouble(arrayVenta[2]);
+				
+				Venta unaVenta = new Venta(idVendedor,fecha,monto);
+				ventas.add(unaVenta);
 				
 			}
 			

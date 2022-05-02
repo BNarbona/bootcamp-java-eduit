@@ -1,54 +1,50 @@
 package ar.com.educacionit.daos.impl;
 
 
-import ar.com.educacionit.daos.ArticuloDao;
+import ar.com.educacionit.daos.SocioDao;
 import ar.com.educacionit.daos.db.ConexionDB;
 import ar.com.educacionit.daos.db.ConnectionException;
-import ar.com.educacionit.domain.Articulo;
+import ar.com.educacionit.domain.Socio;	
 
-
-	
-
-public class ArticuloDaoImpl implements ArticuloDao {
+public class SocioDaoImpl implements SocioDao {
 
 	private ConexionDB con;
 	
-	public ArticuloDaoImpl () {
+	public SocioDaoImpl () {
 		
 		this.con = new ConexionDB("root","1234");
 	}
 
 	@Override
-	public Articulo create(Articulo art) {
-		
+	public Socio create(Socio socio) {
 		try(ConexionDB con = this.con.open();){
-			art.setId(10L);
+			socio.setId(10L);
 		
 		} catch (ConnectionException ce) {
 			
 		}
-		return art;
+		return socio;
 	}
 
 	@Override
-	public Articulo read(Long id) {
+	public Socio read(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Articulo update(Articulo artUpdate) {
+	public Socio update(Socio socioToUpdate) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Articulo delete(Long id) {
+	public Socio delete(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
+	
 
 
 }

@@ -8,7 +8,6 @@ public class Orden {
 	
 	
 	public Orden(Long id, String descripcion, Float monto) {
-		super();
 		this.id = id;
 		this.descripcion = descripcion;
 		this.monto = monto;

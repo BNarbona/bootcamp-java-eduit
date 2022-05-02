@@ -43,16 +43,10 @@ public class Venta {
 	}
 
 
-
-
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(fecha, idVendedor, monto);
 	}
-
-
-
 
 
 	@Override

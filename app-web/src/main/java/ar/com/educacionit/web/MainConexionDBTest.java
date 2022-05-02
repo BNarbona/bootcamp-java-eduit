@@ -2,10 +2,13 @@ package ar.com.educacionit.web;
 
 import ar.com.educacionit.daos.ArticuloDao;
 import ar.com.educacionit.daos.OrdenDao;
+import ar.com.educacionit.daos.SocioDao;
 import ar.com.educacionit.daos.impl.ArticuloDaoImpl;
 import ar.com.educacionit.daos.impl.OrdenDaoImpl;
+import ar.com.educacionit.daos.impl.SocioDaoImpl;
 import ar.com.educacionit.domain.Articulo;
 import ar.com.educacionit.domain.Orden;
+import ar.com.educacionit.domain.Socio;
 
 public class MainConexionDBTest {
 
@@ -16,19 +19,26 @@ public class MainConexionDBTest {
 	public static void main(String[] args) {
 		
 		
-		ArticuloDao dao = new ArticuloDaoImpl();
+		SocioDao daoSocio = new SocioDaoImpl();
 		
-		Articulo unArticulo = new Articulo(6d,"Algo",10f);
+		Socio newSocio = new Socio (001L,"Brenda","Narbona",2000);
 		
-		dao.create(unArticulo);
+		daoSocio.create(newSocio);
 		
 		
-		/*OrdenDao dao = new OrdenDaoImpl();
+		ArticuloDao daoArt = new ArticuloDaoImpl();
+		
+		Articulo newArticulo = new Articulo(6L,"Algo",10f);
+		
+		daoArt.create(newArticulo);
+		
+		
+		OrdenDao daoOrd = new OrdenDaoImpl();
 		
 		//crear la orden para usar en la prueba
 		Orden neworden = new Orden (1L,"Test",150f);
 		
-		dao.create(neworden);*/
+		daoOrd.create(neworden);
 		
 	}
 

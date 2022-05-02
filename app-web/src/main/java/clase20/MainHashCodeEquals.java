@@ -28,7 +28,7 @@ public class MainHashCodeEquals {
 		}
 		
 		System.out.println(coleccion);
-
+		
 	}
 
 }

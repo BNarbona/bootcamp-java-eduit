@@ -1,6 +1,5 @@
 package ar.com.educacionit.daos;
 
-import ar.com.educacionit.domain.Articulo;
 import ar.com.educacionit.domain.Orden;
 
 public interface OrdenDao {
