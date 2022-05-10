@@ -3,7 +3,6 @@ package ar.com.educacionit.web;
 import ar.com.educacionit.daos.ArticuloDao;
 import ar.com.educacionit.daos.OrdenDao;
 import ar.com.educacionit.daos.SocioDao;
-import ar.com.educacionit.daos.impl.ArticuloDaoImpl;
 import ar.com.educacionit.daos.impl.OrdenDaoImpl;
 import ar.com.educacionit.daos.impl.SocioDaoImpl;
 import ar.com.educacionit.domain.Articulo;
@@ -26,11 +25,11 @@ public class MainConexionDBTest {
 		daoSocio.create(newSocio);
 		
 		
-		ArticuloDao daoArt = new ArticuloDaoImpl();
+		/*ArticuloDao daoArt = new ArticuloDaoImpl();
 		
-		Articulo newArticulo = new Articulo(6L,"Algo",10f);
+		//Articulo newArticulo = new Articulo(6L,"Algo",10f);
 		
-		daoArt.create(newArticulo);
+		daoArt.create(newArticulo);*/
 		
 		
 		OrdenDao daoOrd = new OrdenDaoImpl();
