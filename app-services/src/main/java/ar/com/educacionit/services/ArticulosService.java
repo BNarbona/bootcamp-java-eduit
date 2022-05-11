@@ -12,6 +12,9 @@ public interface ArticulosService {
 	 * @return
 	 * @throws ServiceException 
 	 */
+	
+	public Articulo getByCode(String code) throws ServiceException;
+	
 	public Articulo getById(Long id) throws ServiceException;
  	
 	public void deleteArticulo(Long id) throws ServiceException;
@@ -20,5 +23,5 @@ public interface ArticulosService {
 	
 	public List<Articulo> findAll() throws ServiceException;
 	
-	
+	public void save(Articulo nuevo) throws ServiceException;
 }
