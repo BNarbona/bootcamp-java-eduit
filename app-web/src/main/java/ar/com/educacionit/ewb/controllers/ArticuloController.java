@@ -1,6 +1,9 @@
 package ar.com.educacionit.ewb.controllers;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ar.com.educacionit.domain.Articulo;
 import ar.com.educacionit.services.ArticulosService;
 import ar.com.educacionit.services.exceptions.ServiceException;
@@ -13,16 +16,28 @@ public class ArticuloController {
 		//necesito el service
 		ArticulosService service = new ArticulosServiceImpl();
 		
-		//TODO implementar un menu de acciones
+		
 		try {
-			Articulo articulo =  service.getById(1l);
+			List<Articulo> listado = new ArrayList<>();
+			
+			listado = service.findAll();
+			System.out.println(listado);
+			
+			/*Articulo articulo =  service.getById(4l);
 			
 			System.out.println(articulo);
 			
+			
+			
 			//QUIERO ELIMINAR 
-			service.deleteArticulo(articulo.getId());//ctrl+t
+			/*service.deleteArticulo(articulo.getId());//ctrl+t
 			
 			System.out.println("se ha eliminado el articulo " + articulo.getId());
+			
+			articulo.setPrecio(500d);
+			articulo.setStock(4l);
+			service.updateArticulo(articulo);
+			System.out.println(articulo);*/
 			
 		} catch (ServiceException e) {
 			e.printStackTrace();

@@ -1,10 +1,13 @@
 package ar.com.educacionit.daos.impl;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import ar.com.educacionit.daos.ArticuloDao;
 import ar.com.educacionit.daos.db.AdministradorDeConexiones;
@@ -13,9 +16,7 @@ import ar.com.educacionit.domain.Articulo;
 
 public class ArticuloDaoMysqlImpl implements ArticuloDao {
 
-	//private Connection con;
-	
-	
+	//private Connection con; vamos a crear la conexion en cada metodo
 	
 	public ArticuloDaoMysqlImpl() {
 		/*try {
@@ -44,18 +45,7 @@ public class ArticuloDaoMysqlImpl implements ArticuloDao {
 				try(ResultSet rs = st.executeQuery("SELECT * FROM ARTICULOS WHERE ID = " + id)) { 
 					Articulo articulo = null;
 					if(rs.next()) {
-						//convertir el ResultSet a Articulo
-						//extraer los datos que vienen en el rs
-						Long idArticulo = rs.getLong("id");
-						String titulo = rs.getString("titulo");
-						String codigo = rs.getString("codigo");
-						Date fechaCreacion = rs.getDate("fecha_creacion");
-						Double precio = rs.getDouble("precio");
-						Long stock = rs.getLong("stock");
-						Long marcasId = rs.getLong("marcas_id");
-						Long categoriasId = rs.getLong("categorias_id");
-						
-						articulo = new Articulo(idArticulo, titulo, codigo, fechaCreacion, precio, stock, marcasId, categoriasId);
+						articulo = fromResultSetToEntity(rs);
 					}
 					return articulo;
 				}
@@ -68,9 +58,70 @@ public class ArticuloDaoMysqlImpl implements ArticuloDao {
 	}
 
 	@Override
-	public Articulo update(Articulo ArticuloToUpdate) {
-		// TODO Auto-generated method stub
-		return null;
+	public void update(Articulo articulo) throws GenericException {
+		
+		
+		StringBuffer sql = new StringBuffer("UPDATE ARTICULOS SET ");
+		if(articulo.getTitulo()!=null) {
+			sql.append("titulo=?").append(",");
+		}
+		
+		if(articulo.getCodigo()!=null) {
+			sql.append("codigo=?").append(",");
+			
+		}
+		
+		if(articulo.getPrecio()!=null) {
+			sql.append("precio=?").append(",");
+		}
+		
+		if(articulo.getStock()!=null) {
+			sql.append("stock=?").append(",");
+		}
+		if(articulo.getCategoriasId()!=null) {
+			sql.append("categorias_id=?").append(",");
+		}
+		if(articulo.getMarcasId()!=null) {
+			sql.append("marcas_id=?").append(",");
+		}
+		
+		sql = new StringBuffer(sql.substring(0,sql.length()-1));
+		sql.append(" WHERE ID=?");
+	
+		try (Connection con = AdministradorDeConexiones.obtenerConexion();) {
+				try (PreparedStatement st = con.prepareStatement(sql.toString());){
+					if(articulo.getTitulo()!=null) {
+						st.setString(1, articulo.getTitulo());
+					}
+					
+					if(articulo.getCodigo()!=null) {
+						st.setString(2, articulo.getCodigo());
+					}
+					
+					if(articulo.getPrecio()!=null) {
+						st.setDouble(3, articulo.getPrecio());
+					}
+					
+					if(articulo.getStock()!=null) {
+						st.setLong(4, articulo.getStock());
+					}
+					if(articulo.getCategoriasId()!=null) {
+						st.setLong(5, articulo.getCategoriasId());
+					}
+					if(articulo.getMarcasId()!=null) {
+						st.setLong(6, articulo.getMarcasId());
+					}
+					
+					st.setLong(7, articulo.getId());
+					
+					st.execute();	
+				}
+	
+		} catch(GenericException ge) {
+			throw new GenericException(ge.getMessage(), ge);
+		} catch(SQLException se) {
+		throw new GenericException(se.getMessage(), se);
+		}
 	}
 
 	@Override
@@ -87,7 +138,7 @@ public class ArticuloDaoMysqlImpl implements ArticuloDao {
 				
 				st.executeUpdate(sql);//alt+shift+m
 			}			
-			con2.commit();
+			con2.commit(); //AHORA ME IMPACTA LA DB
 		}catch(GenericException ge) {
 			rollback(sql, con2);
 			throw new GenericException(sql, ge);
@@ -97,12 +148,49 @@ public class ArticuloDaoMysqlImpl implements ArticuloDao {
 		}
 	}
 
-	private void rollback(String sql, Connection con2) throws GenericException {
+	private void rollback(String sql, Connection con) throws GenericException {
 		try {
-			con2.rollback();
+			con.rollback();
 		} catch (SQLException e) {
 			throw new GenericException(sql, e); 
 		}
+	}
+
+	@Override
+	public List<Articulo> findAll() throws GenericException {
+		
+	String sql = "SELECT * FROM ARTICULOS";
+	List<Articulo> listado = new ArrayList<>();
+	
+	try(Connection con = AdministradorDeConexiones.obtenerConexion();) {
+		try(Statement st = con.createStatement()){
+			ResultSet rs = st.executeQuery(sql);
+			while(rs.next()) {
+			Articulo articulo;
+			articulo = fromResultSetToEntity(rs);
+			listado.add(articulo);
+			}
+			return listado;
+	} catch (SQLException se) {
+		throw new GenericException("No se pudieron obtener los registros", se);
+		}
+	} catch (SQLException se) {
+		throw new GenericException("Error realizando la consulta: "+sql, se);
+	} 
+	
+}
+
+	private Articulo fromResultSetToEntity(ResultSet rs) throws SQLException {	
+		Long idArticulo = rs.getLong("id");
+		String titulo = rs.getString("titulo");
+		String codigo = rs.getString("codigo");
+		Date fechaCreacion = rs.getDate("fecha_creacion");
+		Double precio = rs.getDouble("precio");
+		Long stock = rs.getLong("stock");
+		Long marcasId = rs.getLong("marcas_id");
+		Long categoriasId = rs.getLong("categorias_id");
+		return new Articulo(idArticulo, titulo, codigo, fechaCreacion, precio, stock, marcasId, categoriasId);
+
 	}
 
 }
