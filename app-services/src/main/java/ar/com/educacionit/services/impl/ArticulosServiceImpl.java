@@ -12,14 +12,10 @@ import ar.com.educacionit.services.exceptions.ServiceException;
 
 public class ArticulosServiceImpl implements ArticulosService {
 
-	//puede tener una instancia de algun dao
-	//necesitamos el de articulo
 	private ArticuloDao dao;
 	
 	public ArticulosServiceImpl() {
-		//depende la la db 
-		//String motorDb= System.getenv("TIPO_MOTOR");
-		//if(motorDb.equals(MYSQL){ implemento un motor, sino otro en un else
+
 		this.dao = new ArticuloDaoMysqlImpl();
 	}
 	
