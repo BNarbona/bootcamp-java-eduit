@@ -52,7 +52,7 @@ public class CrearArticuloController {
 				existente.setPrecio(nuevo.getPrecio());
 				existente.setStock(nuevo.getStock());
 				
-				service.updateArticulo(existente);
+				service.update(existente);
 			
 			} catch (ServiceException e1) {
 				System.err.println(e1.getMessage() + "," + e1.getCause().getMessage());

@@ -13,7 +13,7 @@ public class MarcaController {
 		
 		MarcaService servicio = new MarcaServiceImpl();
 		
-		Marca marca = null;
+		/*Marca marca = null;
 		Long id = 4L;
 		String nombre = "Topper";
 		Long habilitada = 3L;
@@ -27,11 +27,11 @@ public class MarcaController {
 			e.printStackTrace();
 		}
 		
-		/*try {
+		try {
 			marca = servicio.getById(1L);
 		} catch (ServiceException e) {
 			e.printStackTrace();
-		}
+		}*/
 		
 		List<Marca> listadoMarcas=null;
 		
@@ -43,7 +43,7 @@ public class MarcaController {
 		
 		System.out.println(listadoMarcas);
 		
-		Marca marcanueva = new Marca ("Puma",2L);
+		/*Marca marcanueva = new Marca ("Puma",2L);
 		
 		try {
 			servicio.save(marcanueva);

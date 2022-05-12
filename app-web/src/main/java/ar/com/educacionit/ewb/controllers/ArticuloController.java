@@ -11,33 +11,35 @@ import ar.com.educacionit.services.impl.ArticulosServiceImpl;
 
 public class ArticuloController {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ServiceException {
 		
 		//necesito el service
 		ArticulosService service = new ArticulosServiceImpl();
 		
-		
+		/*
+		Articulo art;
+		art = service.getById(7l);
+		System.out.println(art);
+		*/
+
 		try {
 			List<Articulo> listado = new ArrayList<>();
 			
 			listado = service.findAll();
 			System.out.println(listado);
 			
-			/*Articulo articulo =  service.getById(4l);
+			Articulo articulo =  service.getById(4l);
 			
 			System.out.println(articulo);
+
+			//service.deleteArticulo(8l);//ctrl+t
 			
-			
-			
-			//QUIERO ELIMINAR 
-			/*service.deleteArticulo(articulo.getId());//ctrl+t
-			
-			System.out.println("se ha eliminado el articulo " + articulo.getId());
-			
+			/*
 			articulo.setPrecio(500d);
 			articulo.setStock(4l);
 			service.updateArticulo(articulo);
-			System.out.println(articulo);*/
+		System.out.println(articulo);
+		*/
 			
 		} catch (ServiceException e) {
 			e.printStackTrace();

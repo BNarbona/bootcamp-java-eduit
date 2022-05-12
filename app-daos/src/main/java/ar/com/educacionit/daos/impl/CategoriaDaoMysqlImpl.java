@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 import ar.com.educacionit.daos.CategoriaDao;
 import ar.com.educacionit.daos.db.AdministradorDeConexiones;
@@ -14,9 +11,12 @@ import ar.com.educacionit.daos.db.exceptions.GenericException;
 import ar.com.educacionit.domain.Categoria;
 
 
-public class CategoriaDaoMysqlImpl implements CategoriaDao {
+public class CategoriaDaoMysqlImpl extends JDBCBaseDaoImpl <Categoria>implements CategoriaDao {
 	
-
+	public CategoriaDaoMysqlImpl() {
+		super("CATEGORIAS");
+	}
+	
 	@Override
 	public void save (Categoria categoria) throws GenericException {
 		StringBuffer sql = new StringBuffer("INSERT INTO CATEGORIAS (DESCRIPCION,HABILITADA)VALUES(");
@@ -40,25 +40,6 @@ public class CategoriaDaoMysqlImpl implements CategoriaDao {
 			throw new GenericException(se.getMessage(),se);
 		} catch (GenericException ge) {
 			throw new GenericException(ge.getMessage(),ge);
-		}
-	}
-
-	@Override
-	public Categoria getByPK(Long id) throws GenericException {
-		try(Connection con = AdministradorDeConexiones.obtenerConexion()) {
-			try (Statement st = con.createStatement()) {
-				try(ResultSet rs = st.executeQuery("SELECT * FROM CATEGORIAS WHERE ID = " + id)) { 
-					Categoria categoria = null;
-					if(rs.next()) {
-						categoria = fromResultSetToEntity(rs);
-					}
-					return categoria;
-				}
-			} catch (SQLException e) {
-				throw new GenericException("No se pudo obtener la Categoria id:"+id, e);
-			}
-		} catch (SQLException e) {
-			throw new GenericException("No se pudo obtener la Categoria id:"+id, e);
 		}
 	}
 
@@ -97,61 +78,7 @@ public class CategoriaDaoMysqlImpl implements CategoriaDao {
 		}
 	}
 
-	@Override
-	public void delete(Long id) throws GenericException {
-		String sql = "DELETE FROM CATEGORIAS WHERE ID = " + id;
-		Connection con = null;
-		try {
-			con = AdministradorDeConexiones.obtenerConexion();		
-		
-			con.setAutoCommit(false);
-			
-			try(Statement st = con.createStatement()) {
-				st.executeUpdate(sql);
-			}			
-			con.commit();
-		}catch(GenericException ge) {
-			rollback(sql, con);
-			throw new GenericException(sql, ge);
-		}catch(SQLException se) {
-			rollback(sql, con);
-			throw new GenericException(sql, se);
-		}
-	}
-
-	private void rollback(String sql, Connection con) throws GenericException {
-		try {
-			con.rollback();
-		} catch (SQLException e) {
-			throw new GenericException(sql, e); 
-		}
-	}
-
-	@Override
-	public List<Categoria> findAll() throws GenericException {
-		
-	String sql = "SELECT * FROM CATEGORIAS";
-	List<Categoria> listado = new ArrayList<>();
-	
-	try(Connection con = AdministradorDeConexiones.obtenerConexion();) {
-		try(Statement st = con.createStatement()){
-			ResultSet rs = st.executeQuery(sql);
-			while(rs.next()) {
-				Categoria categoria;
-				categoria = fromResultSetToEntity(rs);
-				listado.add(categoria);
-			}
-			return listado;
-	} catch (SQLException se) {
-		throw new GenericException("No se pudieron obtener los registros", se);
-		}
-	} catch (SQLException se) {
-		throw new GenericException("Error realizando la consulta: "+sql, se);
-	} 
-	
-}
-
-	private Categoria fromResultSetToEntity(ResultSet rs) throws SQLException {	
+	public Categoria fromResultSetToEntity(ResultSet rs) throws SQLException {	
 		Long idCategoria = rs.getLong("id");
 		String descripcion = rs.getString("descripcion");
 		Long habilitada = rs.getLong("habilitada");
