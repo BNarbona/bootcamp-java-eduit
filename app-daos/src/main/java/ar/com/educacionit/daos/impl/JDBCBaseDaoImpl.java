@@ -12,6 +12,7 @@ import ar.com.educacionit.daos.db.AdministradorDeConexiones;
 import ar.com.educacionit.daos.db.exceptions.GenericException;
 import ar.com.educacionit.domain.Articulo;
 
+
 public abstract class JDBCBaseDaoImpl<T> implements GenericDao<T>{
 
 	protected String tabla;
@@ -43,6 +44,26 @@ public abstract class JDBCBaseDaoImpl<T> implements GenericDao<T>{
 	@Override
 	public List<T> findAll() throws GenericException {
 	String sql = "SELECT * FROM " +this.tabla;
+	
+	try(Connection con = AdministradorDeConexiones.obtenerConexion();
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		){
+		List<T> listado = new ArrayList<>();
+			while(rs.next()) {
+			T entity;
+			entity = fromResultSetToEntity(rs);
+			listado.add(entity);
+		}
+		return listado;
+		} catch (SQLException se) {
+			throw new GenericException("Error realizando la consulta: "+sql, se);
+		}	 
+	}
+	
+	@Override
+	public List<T> findPageable(Integer currentPage, Integer size) throws GenericException {
+	String sql = "SELECT * FROM " +this.tabla+" LIMIT "+size+" OFFSET "+currentPage;
 	
 	try(Connection con = AdministradorDeConexiones.obtenerConexion();
 		Statement st = con.createStatement();
