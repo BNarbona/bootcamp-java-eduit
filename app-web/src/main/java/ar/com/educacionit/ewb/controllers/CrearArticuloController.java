@@ -34,6 +34,7 @@ public class CrearArticuloController {
 		Long categoriasId = teclado.nextLong();
 		
 		Articulo nuevo = new Articulo(titulo, codigo, null, precio, stock, marcasId, categoriasId);
+		System.out.println(nuevo);
 		service.save(nuevo);
 		
 		teclado.close();
