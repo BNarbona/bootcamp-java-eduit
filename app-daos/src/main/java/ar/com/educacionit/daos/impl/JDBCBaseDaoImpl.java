@@ -14,7 +14,6 @@ import ar.com.educacionit.daos.GenericDao;
 import ar.com.educacionit.daos.db.AdministradorDeConexiones;
 import ar.com.educacionit.daos.db.exceptions.DuplicatedException;
 import ar.com.educacionit.daos.db.exceptions.GenericException;
-import ar.com.educacionit.domain.Articulo;
 import ar.com.educacionit.domain.Entity;
 
 
