@@ -1,4 +1,4 @@
-package ar.com.educacionit.ewb.controllers;
+package ar.com.educacionit.web.controllers;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

@@ -1,4 +1,4 @@
-package ar.com.educacionit.ewb.controllers;
+package ar.com.educacionit.web.controllers;
 
 import java.util.Scanner;
 

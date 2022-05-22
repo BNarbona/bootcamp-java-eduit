@@ -1,18 +1,18 @@
-package ar.com.educacionit.ewb.controllers;
+package ar.com.educacionit.web.controllers;
 
 import java.util.Scanner;
 
-import ar.com.educacionit.domain.Categoria;
-import ar.com.educacionit.services.CategoriaService;
+import ar.com.educacionit.domain.Marca;
+import ar.com.educacionit.services.MarcaService;
 import ar.com.educacionit.services.exceptions.ServiceException;
-import ar.com.educacionit.services.impl.CategoriaServiceImpl;
+import ar.com.educacionit.services.impl.MarcaServiceImpl;
 
-public class CrearCategoriaController {
+public class CrearMarcaController {
 
 	public static void main(String[] args) throws ServiceException {
 		
 		
-		CategoriaService service = new CategoriaServiceImpl();
+		MarcaService service = new MarcaServiceImpl();
 		
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Ingrese la descripcion: ");
@@ -21,8 +21,10 @@ public class CrearCategoriaController {
 		System.out.println("Habilitada 1-SI/ 2-NO: ");
 		Long habilitada = teclado.nextLong();
 		
+		System.out.println("Ingrese el CUIT: ");
+		String cuit = teclado.next();
 		
-		Categoria nuevo = new Categoria (descripcion, habilitada);
+		Marca nuevo = new Marca (descripcion, habilitada, cuit);
 		service.save(nuevo);
 	
 		teclado.close();
