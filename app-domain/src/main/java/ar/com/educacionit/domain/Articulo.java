@@ -1,8 +1,8 @@
 package ar.com.educacionit.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
-public class Articulo {
+public class Articulo implements Entity {
 
 	private Long id;
 	private String titulo;
@@ -29,13 +29,13 @@ public class Articulo {
 	
 	
 	//Constructor con id para cuando hago consultas en mi DB
-	public Articulo(Long id, String titulo, String codigo, java.util.Date fechaCreacion, Double precio, Long stock, Long marcasId,
+	public Articulo(Long id, String titulo, String codigo, Date fechaCreacion, Double precio, Long stock, Long marcasId,
 			Long categoriasId) {
 		
 		this.id = id;
 		this.titulo = titulo;
 		this.codigo = codigo;
-		this.fechaCreacion = (Date)fechaCreacion;
+		this.fechaCreacion = fechaCreacion;
 		this.precio = precio;
 		this.stock = stock;
 		this.marcasId = marcasId;

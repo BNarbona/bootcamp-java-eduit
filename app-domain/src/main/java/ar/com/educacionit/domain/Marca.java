@@ -1,20 +1,24 @@
 package ar.com.educacionit.domain;
 
-public class Marca {
+public class Marca implements Entity{
 
 	private Long id;
 	private String descripcion;
 	private Long habilitada;
+	private String cuit;
 	
-	public Marca(Long id, String descripcion, Long habilitada) {
+	public Marca(Long id, String descripcion, Long habilitada, String cuit) {
 		this.id=id;
 		this.descripcion = descripcion;
 		this.habilitada = habilitada;
+		this.cuit = cuit;
 	}
 	
-	public Marca(String descripcion, Long habilitada) {
+	public Marca(String descripcion, Long habilitada, String cuit) {
 		this.descripcion = descripcion;
 		this.habilitada = habilitada;
+		this.cuit = cuit;
+		
 	}
 
 	
@@ -42,10 +46,18 @@ public class Marca {
 		this.habilitada = habilitada;
 	}
 
+	public String getCuit() {
+		return cuit;
+	}
+
+	public void setCuit(String cuit) {
+		this.cuit = cuit;
+	}
+
 	@Override
 	public String toString() {
-		return "Categoria [id=" + id + ", descripcion=" + descripcion + ", habilitada=" + habilitada + "]";
+		return "Marca [id=" + id + ", descripcion=" + descripcion + ", habilitada=" + habilitada + ", cuit=" + cuit
+				+ "]";
 	}
-	
 	
 }

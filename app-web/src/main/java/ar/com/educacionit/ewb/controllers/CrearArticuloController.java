@@ -10,7 +10,7 @@ import ar.com.educacionit.services.impl.ArticulosServiceImpl;
 
 public class CrearArticuloController {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ServiceException {
 		
 		
 		ArticulosService service = new ArticulosServiceImpl();
@@ -35,8 +35,11 @@ public class CrearArticuloController {
 		Long categoriasId = teclado.nextLong();
 		
 		Articulo nuevo = new Articulo(titulo, codigo, null, precio, stock, marcasId, categoriasId);
+		service.save(nuevo);
 		
-		try {
+		
+		
+		/*try {
 			service.save(nuevo);
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage() + "," + e.getCause().getMessage());
@@ -57,7 +60,7 @@ public class CrearArticuloController {
 			} catch (ServiceException e1) {
 				System.err.println(e1.getMessage() + "," + e1.getCause().getMessage());
 			}
-		}
+		}*/
 		
 	
 	}

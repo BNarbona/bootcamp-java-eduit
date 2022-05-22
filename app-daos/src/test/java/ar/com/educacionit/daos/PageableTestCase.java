@@ -18,8 +18,8 @@ public class PageableTestCase {
 		System.out.println(articulos.size()>0);
 		
 		System.out.println(articulos);
-		
 
-	}
+	}	
 
 }
+
