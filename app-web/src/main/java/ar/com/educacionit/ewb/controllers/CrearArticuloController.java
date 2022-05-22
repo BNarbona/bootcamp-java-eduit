@@ -1,6 +1,5 @@
 package ar.com.educacionit.ewb.controllers;
 
-import java.sql.Date;
 import java.util.Scanner;
 
 import ar.com.educacionit.domain.Articulo;
@@ -18,7 +17,7 @@ public class CrearArticuloController {
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Ingrese el titulo: ");
 		String titulo = teclado.next();
-		
+
 		System.out.println("Ingrese el codigo: ");
 		String codigo = teclado.next();
 		
@@ -37,6 +36,7 @@ public class CrearArticuloController {
 		Articulo nuevo = new Articulo(titulo, codigo, null, precio, stock, marcasId, categoriasId);
 		service.save(nuevo);
 		
+		teclado.close();
 		
 		
 		/*try {
@@ -61,7 +61,5 @@ public class CrearArticuloController {
 				System.err.println(e1.getMessage() + "," + e1.getCause().getMessage());
 			}
 		}*/
-		
-	
 	}
 }
