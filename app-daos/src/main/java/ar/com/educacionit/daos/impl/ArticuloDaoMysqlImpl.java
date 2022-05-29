@@ -22,7 +22,7 @@ public class ArticuloDaoMysqlImpl extends JDBCBaseDaoImpl <Articulo> implements 
 		
 		try(Connection con2 = AdministradorDeConexiones.obtenerConexion()) {
 			try (Statement st = con2.createStatement()) {
-				System.out.println("SELECT * FROM ARTICULOS WHERE CODIGO = " + code);
+				System.out.println("SELECT * FROM ARTICULOS WHERE CODIGO = '" + code +"'");
 				try(ResultSet rs = st.executeQuery("SELECT * FROM ARTICULOS WHERE CODIGO = " + code)) { 
 					Articulo articulo = null;
 					if(rs.next()) {
@@ -57,10 +57,10 @@ public class ArticuloDaoMysqlImpl extends JDBCBaseDaoImpl <Articulo> implements 
 			sql.append("titulo=?").append(",");
 		}
 		
-		if(entity.getCodigo()!=null) {
+		/*if(entity.getCodigo()!=null) {
 			sql.append("codigo=?").append(",");
 			
-		}
+		}*/
 		
 		if(entity.getPrecio()!=null) {
 			sql.append("precio=?").append(",");
@@ -82,26 +82,28 @@ public class ArticuloDaoMysqlImpl extends JDBCBaseDaoImpl <Articulo> implements 
 
 	@Override
 	public void setUpdate(Articulo entity, PreparedStatement st) throws SQLException {
+		
+		int idx=1;
 		if(entity.getTitulo()!=null) {
-		st.setString(1, entity.getTitulo());
+		st.setString(idx++, entity.getTitulo());
 		}
 		
-		if(entity.getCodigo()!=null) {
-			st.setString(2, entity.getCodigo());
-		}
+		/*if(entity.getCodigo()!=null) {
+			st.setString(idx++, entity.getCodigo());
+		}*/
 		
 		if(entity.getPrecio()!=null) {
-			st.setDouble(3, entity.getPrecio());
+			st.setDouble(idx++, entity.getPrecio());
 		}
 		
 		if(entity.getStock()!=null) {
-			st.setLong(4, entity.getStock());
+			st.setLong(idx++, entity.getStock());
 		}
 		if(entity.getCategoriasId()!=null) {
-			st.setLong(5, entity.getCategoriasId());
+			st.setLong(idx++, entity.getCategoriasId());
 		}
 		if(entity.getMarcasId()!=null) {
-			st.setLong(6, entity.getMarcasId());
+			st.setLong(idx++, entity.getMarcasId());
 		}
 			
 	}

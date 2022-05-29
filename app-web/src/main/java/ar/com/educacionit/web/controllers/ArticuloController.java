@@ -16,13 +16,14 @@ public class ArticuloController {
 		//necesito el service
 		ArticulosService service = new ArticulosServiceImpl();
 		
-		/*
 		Articulo art;
-		art = service.getById(7l);
+		art = service.getByCode("1414");
+		art.setPrecio(100000d);
+		service.update(art);
 		System.out.println(art);
-		*/
+		
 
-		try {
+		/*try {
 			List<Articulo> listado = new ArrayList<>();
 			
 			listado = service.findAll();
@@ -39,11 +40,11 @@ public class ArticuloController {
 			articulo.setStock(4l);
 			service.updateArticulo(articulo);
 		System.out.println(articulo);
-		*/
+		
 			
 		} catch (ServiceException e) {
 			e.printStackTrace();
-		}
+		}*/
 		
 		/* dao > CRUD ok 
 		 * daoimpl > 
