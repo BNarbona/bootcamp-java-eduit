@@ -9,7 +9,7 @@ import ar.com.educacionit.daos.impl.JDBCBaseDaoImpl;
 import ar.com.educacionit.services.GenericService;
 import ar.com.educacionit.services.exceptions.ServiceException;
 
-public class AbstractBaseService <T> implements GenericService<T>{
+public abstract class AbstractBaseService <T> implements GenericService<T>{
 
 	protected GenericDao<T> dao;
 

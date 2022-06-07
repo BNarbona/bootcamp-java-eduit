@@ -29,6 +29,21 @@ public abstract class JDBCBaseDaoImpl<T extends Entity> implements GenericDao<T>
 		this.tabla = tabla;
 	}
 
+	public String getSaveSQL() {
+		return "";
+	}
+	public void setSave(T entity,PreparedStatement pst) throws SQLException {
+		
+	}
+	
+	public String getUpdateSQL(T entity) {
+		return "";
+	}
+	public void setUpdate(T entity, PreparedStatement st) throws SQLException {
+	
+	}
+
+	
 	@Override
 	public T getByPK(Long id) throws GenericException {
 		String sql = "SELECT * FROM " +this.tabla+ " WHERE ID = " + id;
@@ -160,11 +175,11 @@ public abstract class JDBCBaseDaoImpl<T extends Entity> implements GenericDao<T>
 		}
 	}
 	
-	protected abstract void setSave(T entity, PreparedStatement st) throws SQLException;
+	//protected abstract void setSave(T entity, PreparedStatement st) throws SQLException;
 
-	public abstract String getUpdateSQL(T entity);
+	//public abstract String getUpdateSQL(T entity);
 	
-	public abstract void setUpdate(T entity, PreparedStatement st ) throws SQLException;
+	//public abstract void setUpdate(T entity, PreparedStatement st ) throws SQLException;
 	
 	@Override
 	public void update(T entity) throws GenericException {

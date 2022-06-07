@@ -114,7 +114,7 @@ public class ArticuloDaoMysqlImpl extends JDBCBaseDaoImpl <Articulo> implements 
 	}*/
 
 	@Override
-	protected void setSave(Articulo entity, PreparedStatement st) throws SQLException {
+	public void setSave(Articulo entity, PreparedStatement st) throws SQLException {
 		st.setString(1, entity.getTitulo());
 		st.setString(2, entity.getCodigo());
 		st.setDate(3,new java.sql.Date(System.currentTimeMillis())); //lo tengo que convertir a sql, esta como java por defecto

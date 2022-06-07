@@ -4,10 +4,9 @@ import ar.com.educacionit.daos.ArticuloDao;
 import ar.com.educacionit.daos.OrdenDao;
 import ar.com.educacionit.daos.SocioDao;
 import ar.com.educacionit.daos.impl.OrdenDaoImpl;
-import ar.com.educacionit.daos.impl.SocioDaoImpl;
 import ar.com.educacionit.domain.Articulo;
 import ar.com.educacionit.domain.Orden;
-import ar.com.educacionit.domain.Socio;
+
 
 public class MainConexionDBTest {
 
@@ -18,11 +17,11 @@ public class MainConexionDBTest {
 	public static void main(String[] args) {
 		
 		
-		SocioDao daoSocio = new SocioDaoImpl();
+		//SocioDao daoSocio = new SocioDaoImpl();
 		
-		Socio newSocio = new Socio (001L,"Brenda","Narbona",2000);
+		//Socio newSocio = new Socio (001L,"Brenda","Narbona",2000);
 		
-		daoSocio.create(newSocio);
+		//daoSocio.create(newSocio);
 		
 		
 		/*ArticuloDao daoArt = new ArticuloDaoImpl();

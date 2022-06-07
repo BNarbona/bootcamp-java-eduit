@@ -6,32 +6,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import ar.com.educacionit.daos.CategoriaDao;
+import ar.com.educacionit.daos.SocioDao;
 import ar.com.educacionit.daos.db.AdministradorDeConexiones;
 import ar.com.educacionit.daos.db.exceptions.GenericException;
-import ar.com.educacionit.domain.Articulo;
-import ar.com.educacionit.domain.Categoria;
+import ar.com.educacionit.domain.Socio;
 
 
-public class CategoriaDaoMysqlImpl extends JDBCBaseDaoImpl <Categoria>implements CategoriaDao {
+
+public class SocioDaoMysqlImpl extends JDBCBaseDaoImpl <Socio> implements SocioDao {
 	
-	public CategoriaDaoMysqlImpl() {
-		super("CATEGORIAS");
+	public SocioDaoMysqlImpl() {
+		super("SOCIOS");
 	}
 
-	public Categoria fromResultSetToEntity(ResultSet rs) throws SQLException {	
-		Long idCategoria = rs.getLong("id");
-		String descripcion = rs.getString("descripcion");
-		Long habilitada = rs.getLong("habilitada");
-		return new Categoria(idCategoria,descripcion,habilitada);
+	public Socio fromResultSetToEntity(ResultSet rs) throws SQLException {	
+		Long idSocio = rs.getLong("id");
+		String apellido = rs.getString("apellido");
+		String nombre = rs.getString("nombre");
+		String codigo = rs.getString("codigo");
+		return new Socio(idSocio,apellido,nombre,codigo);
 	}
 
 	@Override
-	public void setSave(Categoria entity, PreparedStatement st) throws SQLException {
-			st.setString(1, entity.getDescripcion());
-			st.setLong(2, entity.getHabilitada());
+	public void setSave(Socio entity, PreparedStatement st) throws SQLException {
+			st.setString(1, entity.getApellido());
+			st.setString(2, entity.getNombre());
+			st.setString(3, entity.getCodigo());
 		}
 
-	@Override
+	/*@Override
 	public String getUpdateSQL(Categoria entity) {
 		StringBuffer sql = new StringBuffer();	
 		if(entity.getDescripcion()!=null) {
@@ -42,9 +45,9 @@ public class CategoriaDaoMysqlImpl extends JDBCBaseDaoImpl <Categoria>implements
 		}	
 		sql = new StringBuffer(sql.substring(0,sql.length()-1));
 		return sql.toString();	
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public void setUpdate(Categoria entity, PreparedStatement st) throws SQLException {
 		if(entity.getDescripcion()!=null) {
 			st.setString(1, entity.getDescripcion());
@@ -53,6 +56,6 @@ public class CategoriaDaoMysqlImpl extends JDBCBaseDaoImpl <Categoria>implements
 		if(entity.getHabilitada()!=null) {
 			st.setLong(2, entity.getHabilitada());
 		}
-	}
+	}*/
 
 }

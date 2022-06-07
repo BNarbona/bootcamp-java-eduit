@@ -1,18 +1,25 @@
 package ar.com.educacionit.domain;
 
-public class Socio {
+public class Socio implements Entity  {
 
 	private Long id;
-	private String nombre;
 	private String apellido;
-	private Integer anioAdhesion;
+	private String nombre;
+	private String codigo;
 	
 	
-	public Socio(Long id, String nombre, String apellido, Integer anioAdhesion) {
+	public Socio(Long id, String apellido, String nombre, String codigo) {
 		this.id = id;
-		this.nombre = nombre;
 		this.apellido = apellido;
-		this.anioAdhesion = anioAdhesion;
+		this.nombre = nombre;
+		this.codigo = codigo;
+	}
+	
+
+	public Socio(String apellido, String nombre, String codigo) {
+		this.apellido = apellido;
+		this.nombre = nombre;
+		this.codigo = codigo;
 	}
 
 
@@ -46,22 +53,20 @@ public class Socio {
 	}
 
 
-	public Integer getAnioAdhesion() {
-		return anioAdhesion;
+	public String getCodigo() {
+		return codigo;
 	}
 
 
-	public void setAnioAdhesion(Integer anioAdhesion) {
-		this.anioAdhesion = anioAdhesion;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Socio [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", anioAdhesion=" + anioAdhesion
-				+ "]";
+		return "Socio [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", codigo=" + codigo + "]";
 	}
-
 
 
 	

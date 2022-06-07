@@ -26,7 +26,7 @@ public class MarcaDaoMysqlImpl extends JDBCBaseDaoImpl<Marca> implements MarcaDa
 		return new Marca(idMarca,descripcion,habilitada,cuit);
 	}
 	
-	protected void setSave(Marca entity, PreparedStatement st) throws SQLException {
+	public void setSave(Marca entity, PreparedStatement st) throws SQLException {
 		st.setString(1, entity.getDescripcion());
 		st.setLong(2, entity.getHabilitada());
 		st.setString(3, entity.getCuit());
