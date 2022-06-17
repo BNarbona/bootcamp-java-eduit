@@ -1,0 +1,176 @@
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width,initial-scale-1.0">
+        <title>Clase 2 HTML</title>
+    </head>
+    <body>
+        <header>
+
+        </header>
+        <nav>
+
+        </nav>
+        <main>
+            <h1>
+                Clase 2 HTML - Tablas
+            </h1>
+            <section>
+                <h2>Alumnos</h2>
+                <table border="1">
+                    <tr>
+                        <!--titulo de la tabla-->
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Apellido
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Edad
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Narbona
+                        </td>
+                        <td>
+                            Brenda
+                        </td>
+                        <td>
+                            35
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            Barra
+                        </td>
+                        <td>
+                            Walter
+                        </td>
+                        <td>
+                            36
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+            <section>
+                <h2>Input</h2>
+                <label>Number</label></labe><input type ="number"><br>
+                <input type="text"><br>
+                <input type="radio" name="Name1">
+                <input type="radio" name="Name2">
+                <br>
+                <input type="checkbox" name="Name1">
+                <input type="checkbox" name="Name2">
+                <input type="checkbox" name="Name3">
+                <br>
+            </section>
+                <input type="email"><!--Validaciones aqui-->
+                <input type="date"><br><br>
+                <input type="button" value="Clic">   
+                <br>
+                <select>
+                    <option>opcion1</option>
+                    <option>opcion2</option>
+                </select>
+                <br>
+                <section>
+                    <h2>Formulario</h2>
+                    <!--Por defecto los formularios se mandan por GET -->
+                    <form action="login.html"
+                        method="post">
+                        <label>Username</label>
+                        <input type="text" name="usuario" required>
+                        <br>
+                        <label>Password</label>
+                        <input type="password" name="password" required>
+                        <br>
+                        <label>Email</label>
+                        <input type="email" name="email" required>
+                        <br>
+                        <select name= "Rango de edad" required>
+                            <option>18-25</option>
+                            <option>26-35</option>
+                            <option>+36</option>
+                        </select>
+                        <br>
+                        <input type="datetime-local" required>
+                        <br>
+                        <input type="number" name="numero" required max="5" min="2">
+                        <br>
+                        <input type="Submit" value="Login">
+                    </form>
+                </section>
+
+                <section>
+                    <fieldset>
+                        <legend>Titulo</legend>
+                        <form>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label>Usermane</label>
+                                    </td>
+                                    <td>
+                                        <input type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Password</label>
+                                    </td>
+                                    <td>
+                                        <input type="password">
+                                    </td>
+                                <tr>
+                                    <td>
+                                        <label>Rango</label>
+                                    </td>
+                                </tr>
+                                    <td>
+                                        <select></select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </fieldset>
+                </section>
+                
+                <section>
+                    <h3>iFrame</h3>
+                    <iframe 
+                        width="560" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/EOBE_uBSGYw" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </section>
+
+          
+        </main>
+
+        <article>
+        
+        </article>
+        <footer>
+
+        </footer>
+
+    </body>
+
+</html>
