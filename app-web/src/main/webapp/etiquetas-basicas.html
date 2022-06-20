@@ -4,6 +4,13 @@
 <html>
 	<head>
 		<title>Titulo de la pagina</title>
+		<style>
+			/*comentario en CSS*/
+			/*primera forma de incorporar CSS -> por nombre de la etiqueta*/
+		
+		</style>
+		<link rel="stylesheet" href="styles.css"> </link>
+
 	</head>
 	
 	<body>
@@ -18,13 +25,34 @@
 			<b>Conjunto de enlaces</b>
 		</nav>
 		<main>
+			<!--Segunda forma de aplicar CSS, in Line-->
+			<!--<mark style="background-color: blue;">Contenido principal de la aplicacion</mark>-->
 			<mark>Contenido principal de la aplicacion</mark>
-		
 			<section>
 				<ins>Define una seccion del documento</ins>
 			</section>
+
+			<h3>Selector por clase</h3>
+			<section class="sectionCustom">
+				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit mollitia non temporibus quas unde perspiciatis accusantium praesentium doloribus, saepe explicabo a dolor tempora ipsam, perferendis, rem laudantium. Rem, esse sint.</p>
+			</section>
+			<br>
+
+			<h3>Selector por id</h3>
+			<section id="sectionCustomId">
+				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit mollitia non temporibus quas unde perspiciatis accusantium praesentium doloribus, saepe explicabo a dolor tempora ipsam, perferendis, rem laudantium. Rem, esse sint.</p>
+			</section>
 			
-			
+		<div class="divBloque">
+			<h3>Soy un h3 en un div</h3>
+			<p>Parrafo en un div</p>
+		</div>
+
+		<div class="divBloque1">
+			<h3>Soy un h3 en un div</h3>
+			<p>Parrafo en un div</p>
+		</div>
+
 		</main>
 		<aside>
 			<small>Publicidad</small>

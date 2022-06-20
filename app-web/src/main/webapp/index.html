@@ -89,8 +89,8 @@
                 <section>
                     <h2>Formulario</h2>
                     <!--Por defecto los formularios se mandan por GET -->
-                    <form action="login.html"
-                        method="post">
+                    <form action="procesar-login.html"
+                        method="get">
                         <label>Username</label>
                         <input type="text" name="usuario" required>
                         <br>
@@ -110,6 +110,15 @@
                         <br>
                         <input type="number" name="numero" required max="5" min="2">
                         <br>
+                        <label>Radios</label>
+                        <input type="radio" name="radio1" value="1">
+                        <input type="radio" name="radio2" value="2">
+                        <br>
+                        <label>checkbox</label>
+                        <input type="checkbox" name="1" value="c1">
+                        <input type="checkbox" name="2" value="c2">
+
+
                         <input type="Submit" value="Login">
                     </form>
                 </section>
@@ -124,7 +133,7 @@
                                         <label>Usermane</label>
                                     </td>
                                     <td>
-                                        <input type="text">
+                                        <input type="text" placeholder="Texto default">
                                     </td>
                                 </tr>
                                 <tr>
@@ -132,7 +141,7 @@
                                         <label>Password</label>
                                     </td>
                                     <td>
-                                        <input type="password">
+                                        <input type="password" readonly>
                                     </td>
                                 <tr>
                                     <td>
@@ -161,7 +170,26 @@
                     </iframe>
                 </section>
 
-          
+                <section>
+                    <h2>Video</h2>
+                    <video src="http://video.com.ar.ogg"></video>
+                    <video 
+                        width="320"
+                        height="240"
+                        autoplay>
+                        <source src="movie.mp4" type="video/mp4">
+                        <source src="movie.ogg" type="video/ogg">
+                        No se puede reproducir el video en el navegador.>             
+                    </video>
+                </section>
+                <section>
+                    <h2>Audio</h2>
+                    <audio controls>
+                    <source src="Audio.mp3" type="audio/mp3">
+                    <source src="Audio.ogg" type="audio/ogg">
+                    No se puede reproducir el audio en el navegador.
+                    </audio>
+                </section>
         </main>
 
         <article>
