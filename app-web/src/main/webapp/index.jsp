@@ -12,13 +12,9 @@
        <div class="container">
 	       <div class="row">
 	       		<div class="col-6">
-			        <h1>
-			            JSP + Servlet
-			        </h1>
 			        <section>
-			         	<form action="<%=request.getContextPath()%>/controller/AltaFormularioServlet" method="POST">
-			        		<label for="fecha" class="form-label">Fecha</label>
-			        		<input type="date" name="fecha" class="form-control"> 
+			         	<form action="<%=request.getContextPath()%>/controllers/menu" method="GET">
+
 			        		<button class="btn btn-info mt-2">
 			        			Enviar
 			        		</button>

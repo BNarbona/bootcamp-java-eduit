@@ -2,7 +2,8 @@ package ar.com.educacionit.web.enums;
 
 public enum AttributesEnum {
 
-	ARTICULOS("articulos")
+	ARTICULOS("articulos"),
+	MENU("menu")
 	;
 	
 	private String value;

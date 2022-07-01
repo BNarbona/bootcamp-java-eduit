@@ -3,7 +3,8 @@ package ar.com.educacionit.web.enums;
 public enum ViewsEnum {
 	
 	REGISTRO_OK("/registroOk.jsp"),
-	REGISTRO_FAIL("/registroFail.jsp");
+	REGISTRO_FAIL("/registroFail.jsp"),
+	MENU("/menu.jsp");
 	
 	private String value;
 	

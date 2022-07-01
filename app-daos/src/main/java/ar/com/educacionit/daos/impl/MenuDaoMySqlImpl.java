@@ -25,8 +25,9 @@ public class MenuDaoMySqlImpl extends JDBCBaseDaoImpl<Menu> implements MenuDao{
 		String descripcion = rs.getString("menu");
 		Long root = rs.getLong("root");
 		Long idMenuPadre = rs.getLong("id_menu_padre");
+		String link = rs.getString("link");
 		//si root es 1 entonces es true, si no es false
-		return new Menu(id, descripcion, root.equals(1L), idMenuPadre);
+		return new Menu(id, descripcion, root.equals(1L), idMenuPadre, link);
 	}
 
 	
