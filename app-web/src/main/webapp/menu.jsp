@@ -14,28 +14,36 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <main>
-    	    <section>
-		    	<%Collection<Menu> menu = (Collection<Menu>)request.getAttribute(AttributesEnum.MENU.getValue());%>
-		        <ul class="nav nav-tabs">
-		        <% for(Menu m : menu){%>
-	  				<li class="nav-item dropdown">
-	    				<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><%=m.getTexto()%></a>
-		    				<ul class="dropdown-menu">
-	    						<% for(Menu sm : m.getSubMenu()){%>
-		      					<li><a class="dropdown-item" href="#"><%=sm.getTexto()%></a>
-		      						<% for(Menu ssm : sm.getSubMenu()){%>
-		      							<!-- aca tengo qeu poner el subsub -->
-		      						<%}%>
-		      					</li>
-		     					<%}%>
-		     				</ul>
-	  				</li>
-	        		<% }%>
-	  			</ul>
-		</section>
-   
-    </main>
+	<main>
+		<div>
+			<section>
+				<%Collection<Menu> menu = (Collection<Menu>)request.getAttribute(AttributesEnum.MENU.getValue());%>
+				<ul class="nav nav-tabs">
+					<% for(Menu m : menu){%>       <!--  Asumo que mi nivel maximo de menu es 3 -->
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+						href="#" role="button" aria-expanded="false"><%=m.getTexto()%></a>
+						<ul class="dropdown-menu">
+							<% for(Menu sm : m.getSubMenu()){%>
+							<li><a class="dropdown-item"
+								href="<%=request.getContextPath()+sm.getLink()%>"><%=sm.getTexto()%></a>
+								<% for(Menu ssm : sm.getSubMenu()){%> 
+								<!-- consultar otra forma para mostrar los sub-sub menu -->
+								<ul>
+									<li style="list-style-type:none;"><a class="dropdown-item"
+										href="<%=request.getContextPath()+ssm.getLink()%>"><%=ssm.getTexto() %></a>
+									</li>
+								</ul> 
+								<%}%>
+							</li>
+							<%}%>
+						</ul>
+					</li>
+					<% }%>
+				</ul>
+			</section>
+		</div>
+	</main>
 
 </body>
 </html>

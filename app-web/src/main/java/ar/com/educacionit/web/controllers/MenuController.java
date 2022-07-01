@@ -2,8 +2,8 @@ package ar.com.educacionit.web.controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +27,7 @@ public class MenuController extends BaseServlet {
 
 		public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 				
-			ViewsEnum target = ViewsEnum.MENU; // lo uso como vista por defecto
+			ViewsEnum target = ViewsEnum.MENU; 								// lo uso como vista por defecto
 			
 			MenuService ms = new MenuServiceImpl();
 			List<Menu> menu;
@@ -36,17 +36,18 @@ public class MenuController extends BaseServlet {
 			
 			try {
 				menu = ms.findAll();
-				menuOrdenado = buildMenu(menu);
+				menuOrdenado = buildMenu(menu);								// guardo el menu ordenado con sus submenu
 				setAttibute(AttributesEnum.MENU, request, menuOrdenado);
 	
 			} catch (ServiceException e) {
-				target = ViewsEnum.REGISTRO_FAIL; // si falla cambio el target
+				target = ViewsEnum.REGISTRO_FAIL; 							// si falla cambio el target
 			}
 			
-			redirect(target, request, response); // me queda un solo redirect
+			redirect(target, request, response); 								
 		}
 		
 	
+		
 		private static List<Menu> buildMenu(List<Menu> listMenu){
 			
 			Map<Long, Menu> mapRoot = new HashMap();
@@ -71,17 +72,19 @@ public class MenuController extends BaseServlet {
 				}
 			}
 			
-			List<Menu> menuFiltrados = new ArrayList<Menu>();
-			menuFiltrados.addAll(mapRoot.values());
-			return menuFiltrados;
+			List<Menu> menuOrdenado = new ArrayList<Menu>();
+			menuOrdenado.addAll(mapRoot.values());
+			return menuOrdenado;
 			
 		}
 		
 		private static void addToParent(List<Menu> listMenu, Menu m) {
 			boolean exists = false;
-			for(Menu aux: listMenu) {
+			for(int i=0; !exists && i<listMenu.size(); i++) {
+				Menu aux = listMenu.get(i);
 				if(m.getIdMenuPadre().equals(aux.getId())){
 					aux.getSubMenu().add(m);
+					exists = true;
 				}
 			}
 		}

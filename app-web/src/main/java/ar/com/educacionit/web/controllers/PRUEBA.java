@@ -2,6 +2,7 @@ package ar.com.educacionit.web.controllers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -113,6 +114,84 @@ public static void main(String[] args) throws ServiceException {
 			sm.clear();
 		}
 		return root;
+	}
+	
+	
+	private static List<Menu> buildMenu1(List<Menu> listMenu){
+		
+		List<Menu> resto = new ArrayList();
+		List<Menu> subMenu = new ArrayList();
+		List<Menu> menuFiltrado = new ArrayList();
+		
+		
+		for(Menu m: listMenu) {
+			if(m.isRoot()) {
+				menuFiltrado.add(m);
+			}
+			else {
+				resto.add(m);
+			}
+		}
+		
+		Iterator <Menu> itMenu = listMenu.iterator(); 
+		
+		while (itMenu.hasNext () ){		
+															// uso el hasNext() para preguntar si hay otro elemento
+			Menu menuActual = itMenu.next();
+			
+			
+			if(!menuActual.isRoot()) {
+				if(m.getIdMenuPadre()!=null && m.getId() !=0){
+					Menu menuRoot = mapRoot.get(m.getIdMenuPadre());
+					if(menuRoot != null) {
+						menuRoot.getSubMenu().add(m);
+					} else {
+						addToParent(listMenu, m);
+					}
+				}
+			}
+			
+			
+			
+			
+			if(m.getIdMenuPadre().equals(n.getId())){
+				subMenu.add(m);
+				
+			} else {
+		
+			}
+			itMenu.remove ();
+			
+			
+			
+		
+		
+		}
+
+		
+		
+		
+		for(Menu m: resto) {
+			for(Menu n: menuFiltrado) {
+				if(m.getIdMenuPadre().equals(n.getId())){
+					subMenu.add(m);
+				} else {
+					
+				//ver el subsub	
+				}
+			}
+			
+		}	
+	}
+	
+	private static void addToParent1(List<Menu> menureducido, Menu m) {
+		boolean exists = false;
+		for(Menu aux: listMenu) {
+			if(m.getIdMenuPadre().equals(aux.getId())){
+				aux.getSubMenu().add(m);
+				exists = true;
+			}
+		}
 	}*/
 	
 }

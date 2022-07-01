@@ -16,7 +16,7 @@
 			         	<form action="<%=request.getContextPath()%>/controllers/menu" method="GET">
 
 			        		<button class="btn btn-info mt-2">
-			        			Enviar
+			        			Ejercicio
 			        		</button>
 			        	</form>           
 			     	</section>
