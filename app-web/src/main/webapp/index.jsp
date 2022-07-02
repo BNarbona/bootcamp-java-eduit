@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +13,7 @@
 	       		<div class="col-6">
 			        <section>
 			         	<form action="<%=request.getContextPath()%>/controllers/menu" method="GET">
-
-			        		<button class="btn btn-info mt-2">
-			        			Ejercicio
-			        		</button>
+							<button class="btn btn-info mt-2">Ejercicio</button>
 			        	</form>           
 			     	</section>
 			     </div>	

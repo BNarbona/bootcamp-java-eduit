@@ -15,7 +15,7 @@
 </head>
 <body>
 	<main>
-		<div>
+	 	<div >
 			<section>
 				<%Collection<Menu> menu = (Collection<Menu>)request.getAttribute(AttributesEnum.MENU.getValue());%>
 				<ul class="nav nav-tabs">
@@ -28,7 +28,6 @@
 							<li><a class="dropdown-item"
 								href="<%=request.getContextPath()+sm.getLink()%>"><%=sm.getTexto()%></a>
 								<% for(Menu ssm : sm.getSubMenu()){%> 
-								<!-- consultar otra forma para mostrar los sub-sub menu -->
 								<ul>
 									<li style="list-style-type:none;"><a class="dropdown-item"
 										href="<%=request.getContextPath()+ssm.getLink()%>"><%=ssm.getTexto() %></a>
