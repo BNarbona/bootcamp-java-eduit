@@ -36,28 +36,14 @@
 								      <td>
 								      	<!-- Button trigger modal -->
 										<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-										  Eliminar
+										 	Eliminar
 										</button>
-								      	<a class="btn btn-primary" role="button">Editar</a>
-								      </td>
+								      	<!-- Button trigger modal -->
+										<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ 											Editar
+										</button>		
+								     </td>
 								    </tr>
-										<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-										  <div class="modal-dialog">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-										      </div>
-										      <div class="modal-body">
-										        ¿Esta seguro que desea eliminar el articulo?
-										      </div>
-										      <div class="modal-footer">
-										        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-										        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/controller/EliminarArticuloServlet?id=<%=fila.getId()%>" method="GET">Save changes</a>
-										      </div>
-										    </div>
-										  </div>
-										</div>
 							   <%}%>
 						  </tbody>
 						</table>
@@ -68,6 +54,23 @@
      	</div>
     </main>  
     <!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        ¿Esta seguro que desea editar el articulo?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	        <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/controller/EditarArticuloServlet?id=+fila.getId()" method="GET">Save changes</a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
    	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
