@@ -22,14 +22,12 @@ public class MarcaDaoMysqlImpl extends JDBCBaseDaoImpl<Marca> implements MarcaDa
 		Long idMarca = rs.getLong("id");
 		String descripcion = rs.getString("descripcion");
 		Long habilitada = rs.getLong("habilitada");
-		String cuit = rs.getString("cuit");
-		return new Marca(idMarca,descripcion,habilitada,cuit);
+		return new Marca(idMarca,descripcion,habilitada);
 	}
 	
 	public void setSave(Marca entity, PreparedStatement st) throws SQLException {
 		st.setString(1, entity.getDescripcion());
 		st.setLong(2, entity.getHabilitada());
-		st.setString(3, entity.getCuit());
 	}
 	
 	@Override
@@ -40,10 +38,7 @@ public class MarcaDaoMysqlImpl extends JDBCBaseDaoImpl<Marca> implements MarcaDa
 		}	
 		if(entity.getHabilitada()!=null) {
 			sql.append("habilitada=?").append(",");		
-		}	
-		if(entity.getCuit()!=null) {
-			sql.append("cuit=?").append(",");
-		}	
+		}		
 		sql = new StringBuffer(sql.substring(0,sql.length()-1));
 		return sql.toString();	
 	}
@@ -55,9 +50,6 @@ public class MarcaDaoMysqlImpl extends JDBCBaseDaoImpl<Marca> implements MarcaDa
 		}
 		if(entity.getHabilitada()!=null) {
 			st.setLong(2, entity.getHabilitada());
-		}
-		if(entity.getCuit()!=null) {
-			st.setString(3, entity.getCuit());
 		}
 	}
 

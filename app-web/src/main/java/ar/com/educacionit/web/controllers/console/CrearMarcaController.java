@@ -1,4 +1,4 @@
-package ar.com.educacionit.web.controllers;
+package ar.com.educacionit.web.controllers.console;
 
 import java.util.Scanner;
 
@@ -21,10 +21,8 @@ public class CrearMarcaController {
 		System.out.println("Habilitada 1-SI/ 2-NO: ");
 		Long habilitada = teclado.nextLong();
 		
-		System.out.println("Ingrese el CUIT: ");
-		String cuit = teclado.next();
 		
-		Marca nuevo = new Marca (descripcion, habilitada, cuit);
+		Marca nuevo = new Marca (descripcion, habilitada);
 		service.save(nuevo);
 	
 		teclado.close();
