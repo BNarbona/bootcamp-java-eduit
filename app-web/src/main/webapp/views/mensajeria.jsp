@@ -9,8 +9,12 @@ if(exito != null || error !=null){
 }
 
 %>
-if(clase != null){
+
+<% if(clase != null){
+%>	
 	<div class="alert alert-<%=clase%>" role="alert">
-		A Simple-...
+		<%=exito != null ? exito : error%>
 	</div>
-}
+<% 
+} 
+%>

@@ -4,7 +4,8 @@ public enum ViewsEnum {
 	
 	LISTADO("/views/listado.jsp"),
 	REGISTRO_OK("/registroOk.jsp"),
-	REGISTRO_FAIL("/registroFail.jsp");
+	REGISTRO_FAIL("/registroFail.jsp"),
+	LISTADO_CONTROLLER("/controller/ListadoController");
 	
 	private String value;
 	
