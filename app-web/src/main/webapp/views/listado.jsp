@@ -80,7 +80,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-	         <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Confirmar</button>
+	        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Confirmar</button>
 	        <!-- <a type="button" class="btn btn-primary" href="<%=request.getContextPath()%>/controller/EditarArticuloServlet?id=+fila.getId()" method="GET">Save changes</a>-->
 	      </div>
 	    </div>
@@ -88,8 +88,9 @@
 	  </div>
 	</div>
 	<%@include file="alta.jsp"%>
-   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-   	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <script>
 
 	function setId(id){
@@ -102,8 +103,6 @@
 		
 		axios.get(`<%=request.getContextPath()%>/controller/DetalleArticuloController`)
         .then(function (response) {
-           
-   
             
         })
         .catch(function (error) {
