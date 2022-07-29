@@ -2,7 +2,7 @@ import { MovieCard } from './MovieCard';
 import styles from './MovieGrid.module.css';
 import { useState, useEffect } from 'react';
 
-export function MovieGird() {
+export function MovieGrid() {
 
     //estado > steState
     const [peliculas, setPeliculas] = useState([]);

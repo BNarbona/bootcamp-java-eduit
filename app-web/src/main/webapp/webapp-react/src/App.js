@@ -1,5 +1,6 @@
 import styles from './App.module.css';
-import {MovieGrid} from '.components/MovieGrid';
+import { MovieGrid } from './components/MovieGrid';
+
 
 function App() {
   // console.log(styles);
