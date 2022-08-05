@@ -1,36 +1,47 @@
 import { MovieCard } from './MovieCard';
 import styles from './MovieGrid.module.css';
 import { useState, useEffect } from 'react';
-import { get } from '../utils/httpClient';
-import { useLocation } from "react-router";
-import { useNavigate } from 'react-router-dom';
-import {Spinner} from './Spinner';
+import { get } from './../utils/httpClient';
+import { Spinner } from './Spinner';
+// import { useQuery } from '../hooks/useQuery';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
+export function MovieGrid({search}) {
 
-export function MovieGrid() {
-
-    //estado > useteState
+    //estado > steState
     const [peliculas, setPeliculas] = useState([]);
-    const query =  new URLSearchParams(useLocation().search);
-    const search = query.get("search");
     const [isLoading,setIsLoading] = useState(true);
+    const [page,setPage] = useState(1);
+    const [hasMore,setHasMore] = useState(true);
 
     //cuando se carga el componente se ejecuta "el que tiene []"
     useEffect( ()=> {
       setIsLoading(true);
-      const urlSearch = search
-        ? `/search/movie?query=`+search
-        : `/discover/movie`; 
+      const urlSerch = search 
+        ? '/search/movie?query='+search
+        : '/discover/movie?page='+page;
 
-        get(urlSearch)     
-        .then(data => setPeliculas(data.results), setIsLoading(false));
-    },[search]);
+       get(urlSerch)
+       .then(data => {
+          if(page > 1) {
+            setPeliculas( (prevMovies) => prevMovies.concat(data?.results || []))//.sort
+          }else {
+            setPeliculas( data.results)//.sort
+          }
 
-    if(isLoading){
-      return<Spinner/>
-    }
+          setIsLoading(false);
+          setHasMore(data.page < data.total_pages);
+      });
+    },[search,page]);
 
     return (
+
+    <InfiniteScroll
+        dataLength={peliculas.length} //This is important field to render the next data
+        hasMore={true}
+        next={() => setPage( (prevPage) => prevPage + 1)}
+        loader={<Spinner/>}
+        >
         <ul className={styles.movieGrid}>
             {
               peliculas.map((movie) =>{
@@ -38,5 +49,6 @@ export function MovieGrid() {
               })
             }
         </ul>
+    </InfiniteScroll>
     );
 }

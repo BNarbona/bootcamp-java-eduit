@@ -7,8 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 export function SearchMovie() {
     
-    const query =  new URLSearchParams(useLocation().search);
-    const search = query.get("search");
+    
     const history = useNavigate();
     const [searchKey, setSearchKey] = useState('');
 
