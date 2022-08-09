@@ -1,6 +1,8 @@
 package ar.com.educationit.web.jerseyClient.meli;
 
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -37,5 +39,11 @@ public class MeliSiteRestClient {
 		//List<MeliSite> user = response.readEntity(List.class); //este genera warning
 		System.out.println(user);
 		
+		List<String> siteFiltrado= user
+				.stream()
+				.map(site -> site.getName())
+				.collect(Collectors.toList());
+		
+		System.out.println(siteFiltrado);
 	}
 }
