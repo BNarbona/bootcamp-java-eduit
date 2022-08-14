@@ -41,7 +41,7 @@ public class AltaFormularioServlet extends BaseServlet {
 			Collection<Articulo> lista =as.findAll();
 			//request.setAttribute(AttributesEnum.ARTICULOS.getValue(), lista);
 			//Ok
-			setAttibute(AttributesEnum.ARTICULOS, request, lista);
+			setAttribute(AttributesEnum.ARTICULOS, request, lista);
 			
 		} catch (ServiceException e) {
 			//fail

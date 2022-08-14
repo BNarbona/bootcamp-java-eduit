@@ -7,13 +7,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="<%request.getContextPath();%>">Home</a>
         </li>
         <li class="nav-item">
            <a class="nav-link" href="<%=request.getContextPath()%>/controller/ListadoController">
           Listado de Productos
           </a>
         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="<%=request.getContextPath()%>/views/upload.jsp">
+          Upload
+          </a>
+        </li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Mercado Libre

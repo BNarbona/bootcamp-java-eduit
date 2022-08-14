@@ -36,7 +36,7 @@ public class ListadoController extends BaseServlet {
 			e.printStackTrace();
 		}
 		
-		setAttibute(AttributesEnum.ARTICULOS, request, list);
+		setAttribute(AttributesEnum.ARTICULOS, request, list);
 		redirect(target, request, response);
 		
 		

@@ -40,9 +40,9 @@ public class CrearArticuloController extends BaseServlet {
 			Articulo nuevo = new Articulo(titulo, codigo, null, Double.parseDouble(precio), Long.parseLong(stock), Long.parseLong(categoriasId), Long.parseLong(categoriasId));
 			
 			service.save(nuevo);
-			super.setAttibute(AttributesEnum.EXITO, req, "Producto id: "+nuevo.getId()+" Ok");
+			super.setAttribute(AttributesEnum.EXITO, req, "Producto id: "+nuevo.getId()+" Ok");
 		} catch (ServiceException e) {		
-			super.setAttibute(AttributesEnum.ERROR_GENERAL, req, e.getMessage()+ " - " + e.getCause().getMessage());
+			super.setAttribute(AttributesEnum.ERROR_GENERAL, req, e.getMessage()+ " - " + e.getCause().getMessage());
 		}
 		
 		//getServletContext().getRequestDispatcher(ViewsEnum.LISTADO_CONTROLLER.getValue()).forward(req, resp);

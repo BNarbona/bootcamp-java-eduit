@@ -9,6 +9,8 @@
 </head>
 <body>
 	<%@include file="navbar.jsp" %>
+    
+    
     <main>
     <%@include file="mensajeria.jsp"%>
        <div class="container">

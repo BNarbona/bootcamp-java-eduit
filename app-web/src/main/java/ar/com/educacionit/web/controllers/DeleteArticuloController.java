@@ -27,10 +27,10 @@ public class DeleteArticuloController extends BaseServlet {
 			ArticulosService as = new ArticulosServiceImpl();
 			try {
 				as.delete(Long.parseLong(id));
-				super.setAttibute(AttributesEnum.EXITO, request, "Se ha eliminado exitosamente el id: " +id);
+				super.setAttribute(AttributesEnum.EXITO, request, "Se ha eliminado exitosamente el id: " +id);
 			} catch (ServiceException e) {
 				e.printStackTrace();
-				super.setAttibute(AttributesEnum.ERROR_GENERAL, request, e.getMessage() + " - " + e.getCause().getMessage());
+				super.setAttribute(AttributesEnum.ERROR_GENERAL, request, e.getMessage() + " - " + e.getCause().getMessage());
 			}
 		}
 		else {

@@ -1,22 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<link rel="icon" href="<%=request.getContextPath()%>/build/favicon.ico" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="theme-color" content="#000000" />
-<meta name="description"
-	content="Web site created using create-react-app" />
-<link rel="apple-touch-icon" href="<%=request.getContextPath()%>/build/logo192.png" />
-<link rel="manifest" href="<%=request.getContextPath()%>/build/manifest.json" />
-<title>React App</title>
+    <title>Gestor de Productos</title>
+ 	<%@include file="/views/header.jsp"%>
+ 	<%@include file="/reacts/movies.jsp"%> 
 
-<script defer="defer" src="<%=request.getContextPath()%>/build/static/js/main.ecb187c5.js"></script>
-<link href="<%=request.getContextPath()%>/build/static/css/main.f8730dde.css" rel="stylesheet">
 </head>
 <body>
-	<noscript>You need to enable JavaScript to run this app.</noscript>
-	<div id="root"></div>
+	<%@include file="views/navbar.jsp" %>
+    <main>
+       <div class="container">
+     	</div>
+     	<div id="root"></div>
+    </main>  
+   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
-
 </html>
