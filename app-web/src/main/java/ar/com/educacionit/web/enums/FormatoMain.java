@@ -6,9 +6,9 @@ public class FormatoMain {
 		
 		String formato = "CSV";
 		FormatoEnum fe = FormatoEnum.getByValue(formato); 
-		IFormato action = ActionBuilder.getAction(fe);
+		IExportable action = ActionBuilder.getAction(fe);
 		
-		action.doAction();
+		action.exportar(null);
 		
 	}
 

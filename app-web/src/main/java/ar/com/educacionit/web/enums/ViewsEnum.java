@@ -7,7 +7,9 @@ public enum ViewsEnum {
 	REGISTRO_FAIL("/registroFail.jsp"),
 	LISTADO_CONTROLLER("/controller/ListadoController"),
 	UPLOAD_PREVIEW("/views/preview.jsp"), 
-	UPLOAD("/views/upload.jsp");
+	RESULTADO_PREVIEW("/views/resultadosPreview.jsp"),
+	
+	;
 	
 	private String value;
 	

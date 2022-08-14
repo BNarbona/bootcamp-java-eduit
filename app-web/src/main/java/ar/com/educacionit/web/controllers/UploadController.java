@@ -19,7 +19,7 @@ import ar.com.educacionit.services.parser.XLSXFileParser;
 import ar.com.educacionit.web.enums.ActionBuilder;
 import ar.com.educacionit.web.enums.AttributesEnum;
 import ar.com.educacionit.web.enums.FormatoEnum;
-import ar.com.educacionit.web.enums.IFormato;
+import ar.com.educacionit.web.enums.IExportable;
 import ar.com.educacionit.web.enums.ViewsEnum;
 
 @WebServlet("/controller/UploadController")
@@ -36,7 +36,7 @@ public class UploadController extends BaseServlet {
 		
 		if(filePart == null || filePart.getSize() == 0) {
 			super.setAttribute(AttributesEnum.ERROR_GENERAL,req,"Debe seleccionar un Archivo");
-			target = ViewsEnum.UPLOAD;
+			target = ViewsEnum.UPLOAD_PREVIEW;
 			redirect(target, req, resp);
 		}
 		
@@ -62,7 +62,7 @@ public class UploadController extends BaseServlet {
 		
 		if(fileParser == null) {
 			super.setAttribute(AttributesEnum.ERROR_GENERAL, req, "Ext de archivo incorrecta");
-			target = ViewsEnum.UPLOAD;
+			target = ViewsEnum.UPLOAD_PREVIEW;
 			redirect(target, req, resp);
 		}
 		
