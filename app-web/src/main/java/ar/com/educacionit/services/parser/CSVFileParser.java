@@ -16,8 +16,6 @@ import ar.com.educacionit.domain.Socio;
 import ar.com.educacionit.services.exceptions.ParseException;
 
 public class CSVFileParser extends BaseFile implements IParser <Collection<ArticuloDTO>> {
-
-	private String filePath;
 	
 	//path
 	public CSVFileParser(String filePath) {
