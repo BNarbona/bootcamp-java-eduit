@@ -34,6 +34,20 @@
     	<artifactId>jersey-client</artifactId>
     	<version>2.25.1</version>
 	</dependency>
+
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.5.4</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-annotations</artifactId>
+	    <version>2.5.4</version>
+	</dependency>
+	
 	<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-json-jackson -->
 	<dependency>
 	    <groupId>org.glassfish.jersey.media</groupId>
@@ -64,18 +78,19 @@
 	  <artifactId>jaxb-api</artifactId>
 	  <version>2.3.0</version>
 	</dependency>
+	
 	<dependency>
 	  <groupId>com.sun.xml.bind</groupId>
 	  <artifactId>jaxb-core</artifactId>
 	  <version>2.3.0</version>
 	</dependency>
+	
 	<dependency>
 	  <groupId>com.sun.xml.bind</groupId>
 	  <artifactId>jaxb-impl</artifactId>
 	  <version>2.3.0</version>
 	</dependency>
 	
-	  
 	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 	<dependency>
 	    <groupId>org.apache.poi</groupId>
