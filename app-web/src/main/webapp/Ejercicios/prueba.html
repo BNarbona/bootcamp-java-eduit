@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+</head>
+<body>
+    <header>
+        <h1>Encambezado del documento o seccion</h1>
+    </header>
+    <nav>
+        <!--comentario, nunca se ve en la pagina-->
+        Conjunto de enlaces
+    </nav>
+    <main>
+        
+        <section>
+            <h2>Define una seccion del documento</h2>
+            <a href="http://google.com" target="_blank">Ir a google</a>
+        </section>
+        
+        <section>
+            <h2>Seccion del documento</h2>
+            L&aacute;piz
+        </section>
+        <section>
+            <h2>Tablas</h2>
+            <table border="1">
+                <h3>Alumnos</h3>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Edad
+                </th>
+                <tr>
+                    <td>1</td>
+                    <td>Brenda</td>
+                    <td>Narbona</td>
+                    <td>36</td>
+                </tr>    
+       
+                <tr>
+                    <td>1</td>
+                    <td>Brenda</td>
+                    <td>Narbona</td>
+                    <td>36</td>
+                </tr>
+            </table>
+            <br>
+        </section>
+
+        <section>
+            <input type="number"> <br>
+            <input type="text"> <br>
+            <input type="radio" name="n1"><br>
+            <input type="radio" name="n1"><br>
+            <input type="checkbox"><br>
+            <input type="email"> <br>
+            <input type="password"><br>
+            <input type="date"><br>
+            <input type="file"><br>
+            <input type="button" value="Click Me"><br>
+            <select>
+                <option>Opcion 1</option>
+                <option>Opcion 1</option>
+            </select>
+        </section>
+        <section>
+            <h2>Formulario</h2>
+            <!--Por defecto los formularios se mandan por GET -->
+            <form action="procesar-login.html"
+                method="get">
+                <label>Username</label>
+                <input type="text" name="usuario" required>
+                <br>
+                <label>Password</label>
+                <input type="password" name="password" required>
+                <br>
+                <label>Email</label>
+                <input type="email" name="email" required>
+                <br>
+                <select name= "Rango de edad" required>
+                    <option>18-25</option>
+                    <option>26-35</option>
+                    <option>+36</option>
+                </select>
+                <br>
+                <input type="datetime-local" required>
+                <br>
+                <input type="number" name="numero" required max="5" min="2">
+                <br>
+                <input type="Submit" value="Login">
+            </form>
+
+            <form>
+                <label for="fname">First name:</label><br>
+                <input type="text" id="fname" name="fname"><br>
+                <label for="lname">Last name:</label><br>
+                <input type="text" id="lname" name="lname">
+              </form>><br>
+
+        </section>
+        
+        <section>
+            <fieldset>
+                <legend>Recuadro</legend>
+                    <table>
+                      <tr>
+                        <td>
+                            <label>Username</label>
+                        </td>
+                        <td>
+                            <input type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Password</label>
+                        </td>
+                        <td>
+                            <input type="password">
+                        </td>
+                    </tr>
+                    </table>
+            </fieldset>
+        </section>
+        
+        <div class="col-md-12">
+            <div class="p-3">
+                <label>Input String:</label><br>
+                <input type="text" class="blue-border" id="b1" value="120">
+                <button class="ml-3" onclick="changeStyle()">Change Border</button>
+            </div>
+          </div>
+<script>
+          function changeStyle() {
+            document.getElementsByClassName("blue-border")[0].style.borderColor = "red";
+  
+          }
+
+          var saludo1 = function (nombre) {
+  return 'Hola ' + nombre;
+};
+console.log( saludo1('Jonathan') ); //Imprime Hola Jonathan
+
+//Ahora
+let saludo = nombre => `Hola ${nombre}`;
+console.log( saludo('Jonathan') ); //Imprime Hola Jonathan
+
+</script>
+
+    </main>
+    <aside>
+        Publicidad
+        Informacion adicional(puede o no estar relacionado al contenido principal)
+    </aside>
+    <footer>
+        datos de contacto
+        mapa de sitio	
+    </footer>
+</body>
+</html>
