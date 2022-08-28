@@ -6,22 +6,22 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       <form  action = "" method="POST" id="frmArticulo">
+       <form  action="" method="POST" id="frmArticulo">
 			  <div class="mb-3">
 			    <label for="titulo" class="form-label">Titulo</label>
-			    <input type="text" class="form-control" id="titulo" aria-describedby="emailHelp" name="titulo">
+			    <input type="text" class="form-control" id="titulo" name="titulo">
 			  </div>
 			  <div class="mb-3">
 			    <label for="codigo" class="form-label">Codigo</label>
-			    <input type="number" class="form-control" id="codigo" name = "codigo">
+			    <input type="number" class="form-control" id="codigo" name="codigo">
 			  </div>
 		  	  <div class="mb-3">
 			    <label for="precio" class="form-label">Precio</label>
-			    <input type="text" class="form-control" id="precio" name="precio">
+			    <input type="number" class="form-control" id="precio" name="precio">
 			  </div>
 			    <div class="mb-3">
 			    <label for="stock" class="form-label">Stock</label>
-			    <input type="text" class="form-control" id="stock" name = "stock">
+			    <input type="text" class="form-control" id="stock" name="stock">
 			  </div>
 				<div class="mb-3">
 				 <label for="marcas" class="form-label">Marcas</label>
