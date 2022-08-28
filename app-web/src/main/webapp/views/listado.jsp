@@ -16,7 +16,7 @@
        <div class="container">
        		<div class="row"> 
        			<div class="col-12">
-          			<a class="btn btn-primary" href="#" onclick="openAltaModal()">
+          			<a class="btn btn-primary" href="#" onclick="openAltaModal()" role="button">
           				Crear Producto
        				</a>
        			</div>
