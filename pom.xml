@@ -38,5 +38,7 @@
   	<module>app-services</module>
   	<module>app-daos</module>
   	<module>app-domain</module>
+
+  	<module>react-webapp</module>
   </modules>
 </project>
