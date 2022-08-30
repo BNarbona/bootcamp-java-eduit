@@ -33,12 +33,11 @@
  </dependencies> 
 
 
-  <modules>
-  	<module>app-web</module>
+  <modules>	
   	<module>app-services</module>
   	<module>app-daos</module>
   	<module>app-domain</module>
-
   	<module>react-webapp</module>
+  	<module>app-web</module>
   </modules>
 </project>

@@ -7,9 +7,9 @@
   </parent>
   <artifactId>react-webapp</artifactId>
   <packaging>war</packaging>
-  <description>modulo react-movies</description>
+  <name>moduo react - movies</name>
   
-<build>
+  <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -44,7 +44,8 @@
                             <arguments>install</arguments>
                         </configuration>
                     </execution>
-                     <execution>
+					
+					 <execution>
                         <id>npm build</id>
                         <goals>
                             <goal>npm</goal>
@@ -54,7 +55,7 @@
                             <arguments>run build</arguments>
                         </configuration>
                     </execution>
-                    
+
                    
                 </executions>
                 <configuration>
@@ -90,5 +91,4 @@
             </plugin>
         </plugins>
     </build>
-  
 </project>
